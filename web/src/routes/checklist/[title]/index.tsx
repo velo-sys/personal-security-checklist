@@ -8,17 +8,15 @@ import { ChecklistContext } from '~/store/checklist-context';
 import type { Section } from '~/types/PSC';
 import Table from '~/components/psc/checklist-table';
 import { useI18n, langFromPath, strings } from '~/i18n';
-import { vhsModulesForSection } from '~/data/vhs';
 
 export default component$(() => {
   const checklists = useContext(ChecklistContext);
-  const { lang, t, link } = useI18n();
+  const { t } = useI18n();
 
   const loc = useLocation();
   const slug = loc.params.title;
 
   const section: Section | undefined = checklists.value.find((item: Section) => item.slug === slug);
-  const vhsModules = vhsModulesForSection(slug);
 
   const parseMarkdown = (text: string | undefined): string => {
     return (marked.parse(text || '', { async: false }) as string) || '';
@@ -32,18 +30,6 @@ export default component$(() => {
           {section?.title}
         </h1>
         <div class="py-2 prose max-w-none" dangerouslySetInnerHTML={parseMarkdown(section?.intro)}></div>
-
-        {vhsModules.length > 0 && (
-          <div role="note" class="alert alert-info alert-soft my-4 flex flex-wrap">
-            <Icon icon="human" width={20} height={20} />
-            <span class="font-bold">{t('vhsInSection')}:</span>
-            {vhsModules.map((mod) => (
-              <a key={mod.id} class="link" href={link(`/course#${mod.id}`)}>
-                {mod.subtitle[lang]}
-              </a>
-            ))}
-          </div>
-        )}
 
         <div class="overflow-x-auto">{section && <Table section={section} />}</div>
 

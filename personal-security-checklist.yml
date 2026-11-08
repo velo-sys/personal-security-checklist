@@ -209,10 +209,9 @@
       since you can use your password manager to generate, store, and auto-fill these. Virtual phone numbers can be generated
       through your VOIP provider.
 
-  - id: vhs-choose-your-second-factor
+  - id: choose-your-second-factor
     point: Choose your Second Factor Consciously
     priority: Essential
-    vhsOnly: true
     details: >-
       Not every second factor is equally strong. From weakest to strongest: code via email, code via SMS,
       push confirmation on another device, code from an app (TOTP, e.g. Aegis, 2FAS or KeePassXC), a
@@ -554,10 +553,9 @@
       Many modern web apps are JavaScript-based, so disabling it will greatly decrease your browsing experience.
       But if you really want to go all out, then it will really reduce your attack surface.
 
-  - id: vhs-clear-browsing-data-regularly
+  - id: clear-browsing-data-regularly
     point: Clear Browsing Data Regularly
     priority: Essential
-    vhsOnly: true
     details: >-
       Three levers reduce browser tracking: settings (switch search engine, restrict activity tracking and
       cookies), regularly clearing temporary data (cookies, cache, site data, or automatically on close),
@@ -880,10 +878,9 @@
       If all data flows through a central provider, you have to trust them with your data and meta-data. You cannot
       verify that the system running is authentic without back doors.
 
-  - id: vhs-harden-whatsapp-settings
+  - id: harden-whatsapp-settings
     point: Harden WhatsApp Settings
     priority: Optional
-    vhsOnly: true
     details: >-
       If peer pressure keeps you on WhatsApp: under Settings › Privacy › Advanced enable
       "Protect IP address in calls" (calls are relayed via WhatsApp servers, so the other person can't see
@@ -1003,10 +1000,9 @@
       mainstream social networks.
 
 
-  - id: vhs-reset-ad-personalisation
+  - id: reset-ad-personalisation
     point: Turn Off Ad Personalisation
     priority: Optional
-    vhsOnly: true
     details: >-
       Advertisers pay for the perfect moment to show you an ad, and your behavioural data is what makes that
       possible. In the settings of the big platforms (Meta "Ad preferences", Google "My Ad Center", TikTok
@@ -1168,10 +1164,9 @@
       Connecting to even a secure WiFi network increases your attack surface. Disabling your home WiFi and
       connect each device via Ethernet.
 
-  - id: vhs-block-ads-network-wide-with-dns
+  - id: block-ads-network-wide-with-dns
     point: Block Ads Network-Wide with DNS
     priority: Optional
-    vhsOnly: true
     details: >-
       DNS is the phone book of the internet. A self-hosted DNS filter such as
       [Pi-hole](https://pi-hole.net) or [AdGuard Home](https://adguard.com/en/adguard-home/overview.html),
@@ -1339,7 +1334,8 @@
       Restarting your phone at least once a week will clear the app state cached in memory and may run more smoothly
       after a restart.
 
-  - point: Avoid SMS
+  - id: mobile-avoid-sms
+    point: Avoid SMS
     priority: Optional
     details: >-
       SMS should not be used to receive 2FA codes or for communication, instead use an encrypted messaging app,
@@ -1393,7 +1389,8 @@
       System updates contain fixes/patches for security issues, improve performance, and sometimes add new
       features. Install new updates when prompted.
 
-  - point: Encrypt your Device
+  - id: pc-encrypt-your-device
+    point: Encrypt your Device
     priority: Essential
     details: >-
       Use BitLocker for Windows, FileVault on MacOS, or LUKS on Linux, to enable full disk encryption. This
@@ -1593,10 +1590,9 @@
       Deploy canary tokens to detect unauthorized access to your files or emails faster and gather
       information about the intruder.
 
-  - id: vhs-keep-sensitive-data-out-of-cloud-ai
+  - id: keep-sensitive-data-out-of-cloud-ai
     point: Keep Sensitive Data Out of Cloud AI
     priority: Essential
-    vhsOnly: true
     details: >-
       Cloud AI services (ChatGPT, Gemini, Claude & co.) see everything you type.
       Inputs are stored, may be used for training depending on your settings, and are linked to your account,
@@ -1604,20 +1600,18 @@
       ID documents never belong in a cloud AI. Also check in the settings whether your chats may be used for
       training.
 
-  - id: vhs-consider-running-ai-locally
+  - id: consider-running-ai-locally
     point: Consider Running AI Locally
     priority: Advanced
-    vhsOnly: true
     details: >-
       With [Ollama](https://ollama.com) (Windows, macOS, Linux) language models run
       directly on your own computer, so your data never leaves the device. 7B/8B models need roughly 8 GB of
       graphics memory (VRAM). Local models are considerably weaker than large cloud models (smaller context,
       often text-only), but your data stays with you.
 
-  - id: vhs-reduce-dependence-on-big-tech-clouds
+  - id: reduce-dependence-on-big-tech-clouds
     point: Reduce Dependence on Big Tech Clouds
     priority: Optional
-    vhsOnly: true
     details: >-
       Android pushes you towards Google Drive, iOS towards iCloud. Content there is
       analysed automatically (e.g. objects, places and faces in photos), US authorities can access data held
@@ -1877,7 +1871,8 @@
     details: >-
       Be cautious of phishing attempts. Verify URLs, context of received messages, and employ good security practices like using 2FA and not reusing passwords.
 
-  - point: Watch out for Stalkerware
+  - id: human-watch-out-for-stalkerware
+    point: Watch out for Stalkerware
     priority: Essential
     details: >-
       Be aware of stalkerware installed by acquaintances for spying. Look out for signs like unusual battery usage and perform factory resets if suspected.
@@ -1933,7 +1928,8 @@
     details: >-
       Regularly check and update your social media settings due to frequent terms updates that may affect your privacy settings.
 
-  - point: Compartmentalize
+  - id: human-compartmentalize
+    point: Compartmentalize
     priority: Advanced
     details: >-
       Keep different areas of digital activity separate to limit data exposure in case of a breach.
@@ -1954,10 +1950,9 @@
       Opt for anonymous payment methods like cryptocurrencies to avoid entering identifiable information online.
 
 
-  - id: vhs-check-suspicious-links-before-clicking
+  - id: check-suspicious-links-before-clicking
     point: Check Suspicious Links Before Clicking
     priority: Essential
-    vhsOnly: true
     details: >-
       Typical traps: `sparkasse.de.sicherheit-kunden.com/login` and `www.postbank.de.verify-id.top` (the real
       domain is the part right before the first slash), `sparkasse-sicherheit.de` (sounds real, isn't),
@@ -1967,10 +1962,9 @@
       [Google Safe Browsing](https://transparencyreport.google.com/safe-browsing/search), and
       [Punycoder](https://www.punycoder.com) (reveals look-alike characters).
 
-  - id: vhs-be-aware-of-ai-scams
+  - id: be-aware-of-ai-scams
     point: Be Aware of AI Scams
     priority: Essential
-    vhsOnly: true
     details: >-
       AI makes it easy to produce flawless phishing emails, fake images and even cloned voices of people you
       know. Spelling mistakes are no longer a reliable warning sign. Agree on a family code word for

@@ -22,8 +22,6 @@ export type Priority = 'essential' | 'optional' | 'advanced';
 export interface Checklist {
   /** Stable ID shared across languages (defaults to a slug of `point`) */
   id?: string;
-  /** Item was added from the VHS course material (not in upstream checklist) */
-  vhsOnly?: boolean;
   point: string;
   priority: Priority;
   details: string;

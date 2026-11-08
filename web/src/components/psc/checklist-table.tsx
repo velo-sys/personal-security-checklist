@@ -7,10 +7,9 @@ import { marked } from 'marked';
 import { useLocalStorage } from '~/hooks/useLocalStorage';
 import styles from './psc.module.css';
 import { useI18n, itemId, fmt, priorityLabel } from '~/i18n';
-import { vhsItemIndex } from '~/data/vhs';
 
 export default component$((props: { section: Section }) => {
-  const { lang, t, link } = useI18n();
+  const { lang, t } = useI18n();
   const [completed, setCompleted] = useLocalStorage('PSC_PROGRESS', {});
   const [ignored, setIgnored] = useLocalStorage('PSC_IGNORED', {});
 
@@ -136,8 +135,9 @@ export default component$((props: { section: Section }) => {
       }
     });
 
-    const percent = Math.round((done / total) * 100);
-    return { done, total: props.section.checklist.length, percent, disabled };
+    // total excludes ignored items, so "done of total" and the percentage always agree
+    const percent = total > 0 ? Math.round((done / total) * 100) : 0;
+    return { done, total, percent, disabled };
   };
 
   const { done, total, percent, disabled } = calculateProgress();
@@ -259,7 +259,6 @@ export default component$((props: { section: Section }) => {
             const rowId = itemId(item);
             const isItemCompleted = isChecked(rowId);
             const isItemIgnored = isIgnored(rowId);
-            const vhsModules = vhsItemIndex[rowId] || [];
             return (
               <tr
                 key={index}
@@ -310,21 +309,6 @@ export default component$((props: { section: Section }) => {
                   >
                     {item.point}
                   </label>
-                  {(vhsModules.length > 0 || item.vhsOnly) && (
-                    <div class="flex flex-wrap gap-1 mt-1">
-                      {vhsModules.map((mod) => (
-                        <a
-                          key={mod.id}
-                          href={link(`/course#${mod.id}`)}
-                          class="badge badge-sm badge-secondary badge-outline tooltip tooltip-right"
-                          data-tip={`${t('vhsBadgeTip')}: ${mod.subtitle[lang]}`}
-                        >
-                          {t('vhsBadge')} {mod.short}
-                        </a>
-                      ))}
-                      {item.vhsOnly && <span class="badge badge-sm badge-ghost">{t('vhsExtraTip')}</span>}
-                    </div>
-                  )}
                 </td>
                 <td>
                   <div class={`badge gap-2 badge-${badgeColor}`}>{priorityLabel(lang, item.priority)}</div>

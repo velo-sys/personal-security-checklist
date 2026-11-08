@@ -1,17 +1,15 @@
 > [!NOTE]
-> **🇩🇪 Deutsch / 🇬🇧 English fork for adult education (VHS) courses**
+> **🇩🇪 Deutsch / 🇬🇧 English fork**
 >
 > Dies ist ein Fork von [Digital Defense / personal-security-checklist](https://github.com/Lissy93/personal-security-checklist) von Alicia Sykes (CC BY 4.0).
-> Er ergänzt eine **vollständige deutsche Übersetzung** der Checkliste ([`personal-security-checklist.de.yml`](../personal-security-checklist.de.yml)),
-> eine **Sprachumschaltung** auf der Website und eine **Begleitseite zu den VHS-Kursen** („So schützen Sie sich im digitalen Alltag“, „Datenspuren im Netz“ und „Digitale Selbstverteidigung“),
-> deren Inhalte mit den passenden Checklisten-Punkten verknüpft sind.
+> Er ergänzt eine **vollständige deutsche Übersetzung** der Checkliste ([`personal-security-checklist.de.yml`](../personal-security-checklist.de.yml))
+> und eine **Sprachumschaltung** auf der Website (deutsche Seiten unter `/de/`).
 >
-> This fork adds a full German translation, a language switch, and a companion page for the VHS courses, linked to the matching checklist items.
+> This fork adds a full German translation of the checklist and a language switch on the website.
 >
-> 🌐 **Website:** https://velo-sys.github.io/personal-security-checklist/ · 🇩🇪 https://velo-sys.github.io/personal-security-checklist/de/
->
-> Changes vs. upstream: German checklist, i18n (`web/src/i18n`), course data (`web/src/data/vhs.ts`) and page (`/course`, `/de/course`),
-> ten additional checklist items from the course (marked `vhsOnly`), self-hosted fonts and no third-party analytics.
+> Changes vs. upstream: German checklist, i18n (`web/src/i18n`), ten additional checklist items,
+> unique IDs for items that appear in two sections (so ticking one no longer ticks the other),
+> consistent progress counts, self-hosted fonts and no third-party analytics.
 
 <h1 align="center">Personal Security Checklist</h1>
 

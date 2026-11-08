@@ -24,7 +24,7 @@ export default component$((props: { sections: Section[] }) => {
     const id = (item: Checklist) => itemId(item);
     const total = section.checklist.filter((item) => !ignored.value[id(item)]).length;
     const done = section.checklist.filter((item) => checked.value[id(item)]).length;
-    return Math.round((done / total) * 100);
+    return total > 0 ? Math.round((done / total) * 100) : 0;
   });
 
   // On load (in browser only), calculate and set completion data for sections

@@ -230,10 +230,9 @@
       [Alias-Anbieter](https://github.com/Lissy93/awesome-privacy#mail-forwarding)). Benutzernamen kann Ihr
       Passwortmanager erzeugen und speichern; virtuelle Rufnummern bieten VoIP-Anbieter an.
 
-  - id: vhs-choose-your-second-factor
+  - id: choose-your-second-factor
     point: Zweiten Faktor bewusst auswählen
     priority: Essential
-    vhsOnly: true
     details: >-
       Nicht jeder zweite Faktor ist gleich sicher. Von schwach nach stark: Code per E-Mail, Code per SMS,
       Bestätigung per Tastendruck auf einem anderen Gerät (Push), Code aus einer App (TOTP, z. B. Aegis,
@@ -612,10 +611,9 @@
       will, verringert damit aber die Angriffsfläche erheblich (z. B. mit NoScript oder dem
       „Sicherster“-Modus im Tor-Browser).
 
-  - id: vhs-clear-browsing-data-regularly
+  - id: clear-browsing-data-regularly
     point: Browserdaten regelmäßig löschen
     priority: Essential
-    vhsOnly: true
     details: >-
       Gegen Tracking im Browser helfen drei Stellschrauben: Einstellungen (Suchmaschine ändern,
       Aktivitätsverfolgung und Cookies einschränken), das regelmäßige Löschen temporärer Daten (Cookies,
@@ -975,10 +973,9 @@
       können nicht prüfen, ob das System frei von Hintertüren ist. Dezentrale Alternativen sind z. B. Matrix
       oder SimpleX.
 
-  - id: vhs-harden-whatsapp-settings
+  - id: harden-whatsapp-settings
     point: WhatsApp-Einstellungen härten
     priority: Optional
-    vhsOnly: true
     details: >-
       Wenn WhatsApp wegen Gruppenzwang bleibt: Unter Einstellungen › Datenschutz › Erweitert
       „IP-Adresse in Anrufen schützen“ aktivieren (Anrufe laufen über WhatsApp-Server, das Gegenüber sieht
@@ -1109,10 +1106,9 @@
       Soziale Medien sind grundsätzlich nicht privat. Für maximale Sicherheit und Privatsphäre verzichten
       Sie auf die großen Netzwerke – oder weichen auf Alternativen wie Mastodon aus.
 
-  - id: vhs-reset-ad-personalisation
+  - id: reset-ad-personalisation
     point: Werbe-Personalisierung abschalten
     priority: Optional
-    vhsOnly: true
     details: >-
       Bezahlt wird für den besten Zeitpunkt einer Werbeanzeige – dafür werden Ihre Messwerte ausgewertet.
       In den Einstellungen der großen Plattformen (Meta „Werbepräferenzen“, Google „Meine Werbezentrale“,
@@ -1299,10 +1295,9 @@
       Selbst ein sicheres WLAN vergrößert die Angriffsfläche. Konsequent ist es, das WLAN abzuschalten und
       Geräte per LAN-Kabel zu verbinden.
 
-  - id: vhs-block-ads-network-wide-with-dns
+  - id: block-ads-network-wide-with-dns
     point: Werbung im ganzen Heimnetz per DNS blocken
     priority: Optional
-    vhsOnly: true
     details: >-
       DNS ist das Telefonbuch des Internets. Ein eigener DNS-Filter wie
       [Pi-hole](https://pi-hole.net) oder [AdGuard Home](https://adguard.com/de/adguard-home/overview.html),
@@ -1489,7 +1484,7 @@
       Ein Neustart mindestens einmal pro Woche leert den Arbeitsspeicher und entfernt manche nicht dauerhaft
       eingenistete Schadsoftware.
 
-  - id: avoid-sms
+  - id: mobile-avoid-sms
     point: SMS meiden
     priority: Optional
     details: >-
@@ -1550,7 +1545,7 @@
       Updates schließen Sicherheitslücken, verbessern die Leistung und bringen manchmal neue Funktionen.
       Installieren Sie sie zeitnah.
 
-  - id: encrypt-your-device
+  - id: pc-encrypt-your-device
     point: Gerät verschlüsseln
     priority: Essential
     details: >-
@@ -1781,10 +1776,9 @@
       [Canary Tokens](https://canarytokens.org) sind Köder-Dateien oder -Adressen, die Alarm schlagen, sobald
       jemand unbefugt darauf zugreift.
 
-  - id: vhs-keep-sensitive-data-out-of-cloud-ai
+  - id: keep-sensitive-data-out-of-cloud-ai
     point: Keine sensiblen Daten in Cloud-KI eingeben
     priority: Essential
-    vhsOnly: true
     details: >-
       Cloud-KI-Dienste (ChatGPT, Gemini, Claude & Co.) sehen alles, was Sie
       eingeben. Eingaben werden gespeichert, je nach Einstellung auch fürs Training genutzt, und sind mit
@@ -1792,20 +1786,18 @@
       Passwörter, Kundendaten und Ausweisdaten gehören nie in eine Cloud-KI. Prüfen Sie außerdem in den
       Einstellungen, ob Ihre Chats zum Training verwendet werden dürfen.
 
-  - id: vhs-consider-running-ai-locally
+  - id: consider-running-ai-locally
     point: KI lokal betreiben erwägen
     priority: Advanced
-    vhsOnly: true
     details: >-
       Mit [Ollama](https://ollama.com) (Windows, macOS, Linux) laufen Sprachmodelle direkt
       auf Ihrem Rechner – Ihre Daten verlassen das Gerät nicht. Für 7B/8B-Modelle brauchen Sie etwa 8 GB
       Grafikkartenspeicher (VRAM). Lokale Modelle sind deutlich schwächer als große Cloud-Modelle (kleineres
       Kontextfenster, oft nur Text), dafür bleiben die Daten bei Ihnen.
 
-  - id: vhs-reduce-dependence-on-big-tech-clouds
+  - id: reduce-dependence-on-big-tech-clouds
     point: Abhängigkeit von Google-/Apple-Cloud verringern
     priority: Optional
-    vhsOnly: true
     details: >-
       Android drängt auf Google Drive, iOS auf iCloud. Inhalte werden dort
       maschinell ausgewertet (z. B. Objekte, Orte und Gesichter in Fotos), US-Behörden können über den CLOUD
@@ -2121,7 +2113,7 @@
       nicht wiederverwenden. Aktuelle Warnungen gibt es beim
       [Phishing-Radar der Verbraucherzentrale](https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6061).
 
-  - id: watch-out-for-stalkerware
+  - id: human-watch-out-for-stalkerware
     point: Auf Stalkerware achten
     priority: Essential
     details: >-
@@ -2197,7 +2189,7 @@
       Prüfen Sie Ihre Social-Media-Einstellungen regelmäßig, denn geänderte Nutzungsbedingungen können sie
       beeinflussen.
 
-  - id: compartmentalize
+  - id: human-compartmentalize
     point: Bereiche trennen
     priority: Advanced
     details: >-
@@ -2223,10 +2215,9 @@
       Nutzen Sie anonyme Zahlungsmethoden (z. B. Prepaid-Karten, Bargeld), um online keine identifizierbaren
       Daten anzugeben.
 
-  - id: vhs-check-suspicious-links-before-clicking
+  - id: check-suspicious-links-before-clicking
     point: Verdächtige Links vor dem Klick prüfen
     priority: Essential
-    vhsOnly: true
     details: >-
       Typische Fallen: `sparkasse.de.sicherheit-kunden.com/login` und `www.postbank.de.verify-id.top`
       (die echte Domain steht direkt vor dem ersten Schrägstrich), `sparkasse-sicherheit.de` (klingt echt,
@@ -2237,10 +2228,9 @@
       [Fakeshop-Finder](https://www.verbraucherzentrale.de/fakeshopfinder-71560) und
       [Punycoder](https://www.punycoder.com) (macht getarnte Buchstaben sichtbar).
 
-  - id: vhs-be-aware-of-ai-scams
+  - id: be-aware-of-ai-scams
     point: KI-Betrug kennen
     priority: Essential
-    vhsOnly: true
     details: >-
       Mit KI lassen sich fehlerfreie Phishing-Mails, gefälschte Bilder und sogar Stimmen bekannter Personen
       erzeugen. Rechtschreibfehler sind kein verlässliches Warnsignal mehr. Vereinbaren Sie in der Familie

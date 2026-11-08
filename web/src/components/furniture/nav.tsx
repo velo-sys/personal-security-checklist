@@ -95,12 +95,6 @@ export default component$(() => {
               </details>
             </li>
             <li>
-              <a href={link('/course')} class="flex">
-                <Icon icon="human" width={16} height={16} />
-                {t('navCourse')}
-              </a>
-            </li>
-            <li>
               <a
                 href={switchLangHref(pathname, otherLang)}
                 class="tooltip flex tooltip-bottom"
@@ -184,12 +178,6 @@ export default component$(() => {
           <li>
             <a href={switchLangHref(pathname, otherLang)} hreflang={otherLang}>
               🌐 {t('navLanguage')}
-            </a>
-          </li>
-          <li>
-            <a href={link('/course')}>
-              <Icon class="mr-2" icon="human" width={16} height={16} />
-              {t('navCourse')}
             </a>
           </li>
           <li>
