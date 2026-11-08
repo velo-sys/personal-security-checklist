@@ -36,7 +36,7 @@
       footer: 'Basiert auf „Digital Defense“ von Alicia Sykes (CC BY 4.0), deutsche Übersetzung und Erweiterungen. Läuft komplett offline, es werden keine Daten übertragen.',
       items: 'Punkte',
       sources: 'Auf dem Laufenden bleiben',
-      sourcesHint: 'Offizielle Stellen mit aktuellen Warnungen und Ratgebern. Die Seiten öffnen sich erst beim Klick im Browser – diese Datei selbst lädt nichts aus dem Internet.',
+      sourcesHint: 'Offizielle Stellen mit aktuellen Warnungen und Ratgebern, dazu ein Videokanal zum Nachschlagen für Selbst-Hosting und fortgeschrittene Themen. Die Seiten öffnen sich erst beim Klick im Browser – diese Datei selbst lädt nichts aus dem Internet.',
     },
     en: {
       title: 'Personal Security Checklist',
@@ -56,7 +56,7 @@
       footer: 'Based on “Digital Defense” by Alicia Sykes (CC BY 4.0), German translation and additions. Runs fully offline, no data is transmitted.',
       items: 'items',
       sources: 'Stay up to date',
-      sourcesHint: 'Official German sources with current warnings and guides (in German). Pages only open in your browser when you click – this file itself loads nothing from the internet.',
+      sourcesHint: 'Official German sources with current warnings and guides (in German), plus a video channel to look up self-hosting and advanced topics. Pages only open in your browser when you click – this file itself loads nothing from the internet.',
     },
   };
 
@@ -86,6 +86,16 @@
           de: 'Android und iOS: App-Tracking abschalten', en: 'Android and iOS: turn off app tracking' },
         { url: 'https://www.verbraucherzentrale.de/wissen/digitale-welt',
           de: 'Ratgeber Digitale Welt', en: 'Digital world guides' },
+      ],
+    },
+    {
+      // Language-specific video channels for self-hosting and advanced topics
+      name: { de: 'Selbst hosten & Fortgeschrittenes', en: 'Self-hosting & advanced' },
+      links: [
+        { only: 'de', url: 'https://www.youtube.com/@ct3003',
+          de: 'c\u2019t 3003 (YouTube): Technik, Selbst-Hosting, Datenschutz' },
+        { only: 'en', url: 'https://www.youtube.com/@NetworkChuck',
+          en: 'NetworkChuck (YouTube): networking, self-hosting, security' },
       ],
     },
   ];
@@ -308,7 +318,9 @@
 
   function sourcesPanel() {
     var cols = SOURCES.map(function (src) {
-      return '<div class="source"><h3>' + esc(src.name) + '</h3><ul>' + src.links.map(function (l) {
+      var name = typeof src.name === 'string' ? src.name : src.name[state.lang];
+      var links = src.links.filter(function (l) { return !l.only || l.only === state.lang; });
+      return '<div class="source"><h3>' + esc(name) + '</h3><ul>' + links.map(function (l) {
         return '<li><a href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">' + esc(l[state.lang]) + ' ↗</a></li>';
       }).join('') + '</ul></div>';
     }).join('');

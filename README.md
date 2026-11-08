@@ -53,7 +53,8 @@ Ihr Fortschritt wird **in der Datei selbst** gespeichert.
 - **Export/Import** des Fortschritts als JSON (Backup, Gerätewechsel)
 - Hell/Dunkel, druckfreundlich, auch am Handy nutzbar
 - **„Auf dem Laufenden bleiben“**: Links zu aktuellen Warnungen und Ratgebern von **BSI** und **Verbraucherzentrale**
-  (Phishing-Radar, Fakeshop-Finder, Sicherheitswarnungen, Newsletter) – geöffnet wird erst beim Klick
+  (Phishing-Radar, Fakeshop-Finder, Sicherheitswarnungen, Newsletter) sowie [c't 3003](https://www.youtube.com/@ct3003)
+  zum Nachschlagen für Selbst-Hosting und Fortgeschrittenes – geöffnet wird erst beim Klick
 - An Deutschland angepasst: BSI, Verbraucherzentrale, Sperr-Notruf 116 116, SCHUFA-Selbstauskunft u. a.
 
 ### Installation
@@ -138,7 +139,8 @@ A single HTML file with more than 260 tips to secure your digital life and prote
 - **Saving into the file itself**, mirrored to the browser; when opening, the newer state wins
 - **Export/import** your progress as JSON (backup, switching devices)
 - **“Stay up to date”**: links to current warnings and guides from the German **BSI** and the **Verbraucherzentrale**
-  (consumer advice centre) – nothing is opened until you click
+  (consumer advice centre), plus [NetworkChuck](https://www.youtube.com/@NetworkChuck) to look up self-hosting and
+  advanced topics – nothing is opened until you click
 - Light/dark, print-friendly, works on phones too
 
 ### Install
