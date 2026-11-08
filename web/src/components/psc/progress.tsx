@@ -5,6 +5,7 @@ import { useLocalStorage } from '~/hooks/useLocalStorage';
 import { ChecklistContext } from '~/store/checklist-context';
 import type { Priority, Sections, Section } from '~/types/PSC';
 import Icon from '~/components/core/icon';
+import { useI18n, itemId, fmt } from '~/i18n';
 
 /**
  * Component for client-side user progress metrics.
@@ -15,6 +16,9 @@ import Icon from '~/components/core/icon';
 export default component$(() => {
   // All checklist data, from store
   const checklists = useContext(ChecklistContext);
+  const { t, link } = useI18n();
+  const chartTooltip = t('progressChartTooltip');
+  const levelLabels = { essential: t('essential'), optional: t('optional'), advanced: t('advanced') };
   // Completed items, from local storage
   const [checkedItems] = useLocalStorage('PSC_PROGRESS', {});
   // Ignored items, from local storage
@@ -43,7 +47,7 @@ export default component$(() => {
     let totalComplete = 0;
     sections.forEach((section: Section) => {
       section.checklist.forEach((item) => {
-        const id = item.point.toLowerCase().replace(/ /g, '-');
+        const id = itemId(item);
         const isComplete = checkedItems.value[id];
         const isIgnored = ignoredItems.value[id];
         if (isComplete) {
@@ -202,7 +206,7 @@ export default component$(() => {
     const buildDataForPriority = (priority: Priority, color: string) => {
       return Promise.all(sections.map((section) => calculatePercentage(section, priority))).then((data) => ({
         ...datasetTemplate,
-        label: priority.charAt(0).toUpperCase() + priority.slice(1),
+        label: levelLabels[priority],
         data: data,
         backgroundColor: color,
       }));
@@ -262,7 +266,7 @@ export default component$(() => {
                 },
                 tooltip: {
                   callbacks: {
-                    label: (ctx) => `Completed ${Math.round(ctx.parsed.r)}% of ${ctx.dataset.label || ''} items`,
+                    label: (ctx) => fmt(chartTooltip, { p: Math.round(ctx.parsed.r), l: ctx.dataset.label || '' }),
                   },
                 },
               },
@@ -274,9 +278,9 @@ export default component$(() => {
   );
 
   const items = [
-    { id: 'essential-container', label: 'Essential' },
-    { id: 'optional-container', label: 'Optional' },
-    { id: 'advanced-container', label: 'Advanced' },
+    { id: 'essential-container', label: t('essential') },
+    { id: 'optional-container', label: t('optional') },
+    { id: 'advanced-container', label: t('advanced') },
   ];
 
   // Beware, some god-awful markup ahead (thank Tailwind for that!)
@@ -290,26 +294,24 @@ export default component$(() => {
       backdrop-filter backdrop-blur-md border border-stone-800"
         >
           <button class="absolute top-1 right-1 btn btn-sm opacity-50" onClick$={() => setIgnoreDialog(true)}>
-            Close
+            {t('settingsClose')}
           </button>
-          <p class="text-xl block text-center font-bold">No stats yet</p>
-          <p class="w-md text-left my-2">
-            You'll see your progress here, once you start ticking items off the checklists
-          </p>
-          <p class="w-md text-left my-2">Get started, by selecting a checklist below</p>
+          <p class="text-xl block text-center font-bold">{t('progressNoStats')}</p>
+          <p class="w-md text-left my-2">{t('progressNoStatsText')}</p>
+          <p class="w-md text-left my-2">{t('progressGetStarted')}</p>
         </div>
       )}
 
       <div class="flex justify-center flex-col items-center gap-6">
         {/* Progress Percent */}
         <div class="rounded-box bg-front shadow-md w-96 p-4">
-          <h3 class="text-primary text-2xl">Your Progress</h3>
+          <h3 class="text-primary text-2xl">{t('progressTitle')}</h3>
           <p class="text-lg">
-            You've completed{' '}
+            {t('progressCompleted')}{' '}
             <b>
-              {totalProgress.value.completed} out of {totalProgress.value.outOf}
+              {totalProgress.value.completed} {t('progressOutOf')} {totalProgress.value.outOf}
             </b>{' '}
-            items
+            {t('progressItems')}
           </p>
           <progress
             class="progress w-80"
@@ -323,7 +325,7 @@ export default component$(() => {
           {items.map((item) => (
             <div
               key={item.id}
-              class="flex flex-col justify-items-center carousel-item w-20 p-4
+              class="flex flex-col justify-items-center carousel-item w-24 p-4
                 bg-front shadow-md mx-2.5 rounded-box"
             >
               <div class="relative" id={item.id}></div>
@@ -333,11 +335,9 @@ export default component$(() => {
         </div>
         {/* Something ??? */}
         <div class="p-4 rounded-box bg-front shadow-md w-96 grow">
-          <p class="text-sm opacity-80 mb-2">
-            Next up, consider switching to more secure and privacy-respecting apps and services.
-          </p>
+          <p class="text-sm opacity-80 mb-2">{t('progressNext')}</p>
           <p class="text-lg">
-            View our directory of recommended software, at{' '}
+            {t('progressDirectory')}{' '}
             <a class="link link-secondary font-bold" href="https://awesome-privacy.xyz">
               awesome-privacy.xyz
             </a>
@@ -357,12 +357,15 @@ export default component$(() => {
             {checklists.value.map((section: Section, index: number) => (
               <li key={index}>
                 <a
-                  href={`/checklist/${section.slug}`}
+                  href={link(`/checklist/${section.slug}`)}
                   class={[
                     'my-2 w-80 flex justify-between items-center tooltip transition',
                     `hover:text-${section.color}-400`,
                   ]}
-                  data-tip={`Completed ${sectionCompletion.value[index]}% of ${section.checklist.length} items.`}
+                  data-tip={fmt(t('progressTooltip'), {
+                    p: sectionCompletion.value[index] || 0,
+                    n: section.checklist.length,
+                  })}
                 >
                   <p class="text-sm m-0 flex items-center text-left gap-1 text-nowrap overflow-hidden max-w-40">
                     <Icon icon={section.icon} width={14} />

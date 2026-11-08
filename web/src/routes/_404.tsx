@@ -1,12 +1,15 @@
-// src/routes/_404.tsx
 import { component$ } from '@builder.io/qwik';
+import { useI18n } from '~/i18n';
 
 export default component$(() => {
+  const { t, link } = useI18n();
   return (
-    <div>
-      <h1>404 Not Found</h1>
-      <p>The page you're looking for doesn't exist.</p>
-      <a href="/">Go back to the homepage</a>
+    <div class="p-8">
+      <h1 class="text-3xl">404</h1>
+      <p>{t('notFound')}</p>
+      <a class="link link-primary" href={link('/')}>
+        {t('backHome')}
+      </a>
     </div>
   );
 });

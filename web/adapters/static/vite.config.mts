@@ -12,7 +12,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: 'https://digital-defense.io',
+        origin: process.env.SITE_ORIGIN || 'https://velo-sys.github.io',
       }),
     ],
   };

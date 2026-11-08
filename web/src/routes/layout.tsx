@@ -4,9 +4,10 @@ import { routeLoader$, type RequestHandler } from '@builder.io/qwik-city';
 import Navbar from '~/components/furniture/nav';
 import Footer from '~/components/furniture/footer';
 import { ChecklistContext } from '~/store/checklist-context';
-import checklistData from '~/data/checklist';
+import { getChecklists } from '~/data/checklist';
+import { langFromPath } from '~/i18n';
 
-export const useChecklists = routeLoader$(() => checklistData);
+export const useChecklists = routeLoader$(({ url }) => getChecklists(langFromPath(url.pathname)));
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   cacheControl({

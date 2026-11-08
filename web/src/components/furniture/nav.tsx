@@ -4,11 +4,16 @@ import type { Section } from '~/types/PSC';
 import { useTheme } from '~/store/theme-store';
 import articles from '~/data/articles';
 import { ChecklistContext } from '~/store/checklist-context';
+import { useI18n, switchLangHref, BASE } from '~/i18n';
+import { REPO_URL } from '~/data/site';
 
 export default component$(() => {
   const data = useContext(ChecklistContext);
 
   const { theme, setTheme } = useTheme();
+  const { lang, t, link, pathname } = useI18n();
+  const otherLang = lang === 'de' ? 'en' : 'de';
+  const settingsConfirm = t('settingsConfirm');
 
   const themes = [
     'dark',
@@ -28,7 +33,7 @@ export default component$(() => {
   ];
 
   const deleteAllData = $(() => {
-    const isConfirmed = confirm('Are you sure you want to delete all local data? This will erase your progress.');
+    const isConfirmed = confirm(settingsConfirm);
     if (isConfirmed) {
       localStorage.clear();
       location.reload();
@@ -57,8 +62,13 @@ export default component$(() => {
               </svg>
             </label>
           </div>
-          <a href="/" class="btn btn-ghost text-xl flex capitalize">
-            <label for="my-drawer-3" aria-label="open sidebar" class="tooltip tooltip-bottom" data-tip="View all Pages">
+          <a href={link('/')} class="btn btn-ghost text-xl flex capitalize">
+            <label
+              for="my-drawer-3"
+              aria-label="open sidebar"
+              class="tooltip tooltip-bottom"
+              data-tip={t('navViewAll')}
+            >
               <Icon class="mr-2" icon="shield" width={28} height={28} />
             </label>
             <h1>Digital Defense</h1>
@@ -70,12 +80,12 @@ export default component$(() => {
               <details>
                 <summary>
                   <Icon icon="checklist" width={16} height={16} />
-                  Checklists
+                  {t('navChecklists')}
                 </summary>
                 <ul class="p-2 bg-base-100 rounded-t-none z-10">
                   {data.value.map((item: Section, index: number) => (
                     <li key={`checklist-nav-${index}`} class={`hover:bg-${item.color}-600/15`}>
-                      <a href={`/checklist/${item.slug}`}>
+                      <a href={link(`/checklist/${item.slug}`)}>
                         <Icon color={item.color} class="mr-2" icon={item.icon} width={16} height={16} />
                         {item.title}
                       </a>
@@ -85,17 +95,29 @@ export default component$(() => {
               </details>
             </li>
             <li>
+              <a href={link('/course')} class="flex">
+                <Icon icon="human" width={16} height={16} />
+                {t('navCourse')}
+              </a>
+            </li>
+            <li>
               <a
-                href="https://github.com/lissy93/personal-security-checklist"
+                href={switchLangHref(pathname, otherLang)}
                 class="tooltip flex tooltip-bottom"
-                data-tip="View / Edit Source & Data"
+                data-tip={t('navLanguageTip')}
+                hreflang={otherLang}
               >
+                🌐 {t('navLanguage')}
+              </a>
+            </li>
+            <li>
+              <a href={REPO_URL} class="tooltip flex tooltip-bottom" data-tip={t('navSourceTip')}>
                 <Icon icon="github" width={16} height={16} />
                 GitHub
               </a>
             </li>
           </ul>
-          <div class="tooltip tooltip-bottom" data-tip="Theme">
+          <div class="tooltip tooltip-bottom" data-tip={t('navTheme')}>
             <label class="toggle text-base-content cursor-pointer">
               <input
                 type="checkbox"
@@ -138,7 +160,7 @@ export default component$(() => {
             <p
               onClick$={() => ((document.getElementById('settings_modal') || {}) as HTMLDialogElement).showModal()}
               class="cursor-pointer tooltip flex tooltip-bottom"
-              data-tip="Settings"
+              data-tip={t('navSettings')}
             >
               <Icon icon="settings" width={20} height={20} />
             </p>
@@ -154,26 +176,37 @@ export default component$(() => {
             Digital Defense
           </h2>
           <li>
-            <a href="/">
+            <a href={link('/')}>
               <Icon class="mr-2" icon="homepage" width={16} height={16} />
-              Home
+              {t('navHome')}
             </a>
           </li>
           <li>
-            <a href="https://github.com/lissy93/personal-security-checklist">
+            <a href={switchLangHref(pathname, otherLang)} hreflang={otherLang}>
+              🌐 {t('navLanguage')}
+            </a>
+          </li>
+          <li>
+            <a href={link('/course')}>
+              <Icon class="mr-2" icon="human" width={16} height={16} />
+              {t('navCourse')}
+            </a>
+          </li>
+          <li>
+            <a href={REPO_URL}>
               <Icon class="mr-2" icon="github" width={16} height={16} />
               GitHub
             </a>
           </li>
           <li>
-            <a href="/checklist">
+            <a href={link('/checklist')}>
               <Icon class="mr-2" icon="all" width={16} height={16} />
-              Checklists
+              {t('navChecklists')}
             </a>
             <ul>
               {data.value.map((item: Section, index: number) => (
                 <li key={`checklist-side-${index}`} class={`hover:bg-${item.color}-600/15`}>
-                  <a href={`/checklist/${item.slug}`}>
+                  <a href={link(`/checklist/${item.slug}`)}>
                     <Icon color={item.color} class="mr-2" icon={item.icon} width={16} height={16} />
                     {item.title}
                   </a>
@@ -182,22 +215,22 @@ export default component$(() => {
             </ul>
           </li>
           <li>
-            <a href="/article">
+            <a href={`${BASE}article/`}>
               <Icon class="mr-2" icon="articles" width={16} height={16} />
-              Articles
+              {t('navArticles')}
             </a>
             <ul>
               {articles.map((article) => (
                 <li key={article.slug}>
-                  <a href={`/article/${article.slug}`}>{article.title}</a>
+                  <a href={`${BASE}article/${article.slug}/`}>{article.title}</a>
                 </li>
               ))}
             </ul>
           </li>
           <li>
-            <a href="/about">
+            <a href={`${BASE}about/`}>
               <Icon class="mr-2" icon="about" width={16} height={16} />
-              About
+              {t('navAbout')}
             </a>
             <ul>
               <li>
@@ -211,7 +244,7 @@ export default component$(() => {
             </ul>
             <ul>
               <li>
-                <a href="/about#author">Author</a>
+                <a href={`${BASE}about/#author`}>Author</a>
                 <ul>
                   <li>
                     <a href="https://aliciasykes.com/contact">Contact</a>
@@ -246,15 +279,15 @@ export default component$(() => {
       <dialog id="settings_modal" class="modal">
         <div class="modal-box">
           <div class="tabs tabs-lift">
-            <p class="tab tab-active">Settings</p>
-            <a class="tab" href="/about">
-              About
+            <p class="tab tab-active">{t('navSettings')}</p>
+            <a class="tab" href={`${BASE}about/`}>
+              {t('navAbout')}
             </a>
           </div>
           <div class="modal-action justify-start w-full flex flex-col gap-4">
             <div class="flex items-between w-full justify-between">
               <label for="theme" class="label">
-                Theme
+                {t('navTheme')}
               </label>
               <select
                 id="theme"
@@ -262,7 +295,7 @@ export default component$(() => {
                 onChange$={(event) => setTheme((event.target as HTMLSelectElement).value)}
               >
                 <option disabled selected>
-                  Theme
+                  {t('navTheme')}
                 </option>
                 {themes.map((someTheme) => (
                   <option key={someTheme} value={someTheme} selected={someTheme === theme.theme}>
@@ -272,16 +305,16 @@ export default component$(() => {
               </select>
             </div>
             <div class="flex items-between w-full justify-between">
-              <label class="label">Data</label>
+              <label class="label">{t('settingsData')}</label>
               <button class="btn btn-primary" onClick$={deleteAllData}>
-                Delete All
+                {t('settingsDeleteAll')}
               </button>
             </div>
             <button
               class="btn my-1 mx-auto"
               onClick$={() => ((document.getElementById('settings_modal') || {}) as HTMLDialogElement).close()}
             >
-              Close
+              {t('settingsClose')}
             </button>
           </div>
         </div>

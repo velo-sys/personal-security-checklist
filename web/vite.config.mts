@@ -4,8 +4,12 @@ import { qwikCity } from '@builder.io/qwik-city/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
+// Base path the site is served from, e.g. "/personal-security-checklist/" on GitHub Pages
+const base = process.env.BASE_PATH || '/';
+
 export default defineConfig((): UserConfig => {
   return {
+    base,
     plugins: [
       qwikCity(),
       qwikVite(),
@@ -16,6 +20,10 @@ export default defineConfig((): UserConfig => {
             src: '../personal-security-checklist.yml',
             dest: 'public',
           },
+          {
+            src: '../personal-security-checklist.de.yml',
+            dest: 'public',
+          },
         ],
       }),
     ],
@@ -24,7 +32,7 @@ export default defineConfig((): UserConfig => {
     },
     server: {
       fs: {
-        allow: ['.', '../personal-security-checklist.yml'],
+        allow: ['.', '../personal-security-checklist.yml', '../personal-security-checklist.de.yml'],
       },
       headers: {
         'Cache-Control': 'public, max-age=0',

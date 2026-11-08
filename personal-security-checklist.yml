@@ -208,6 +208,17 @@
       [Mail Alias Providers](https://github.com/Lissy93/awesome-privacy#mail-forwarding)). Usernames are easier
       since you can use your password manager to generate, store, and auto-fill these. Virtual phone numbers can be generated
       through your VOIP provider.
+
+  - id: vhs-choose-your-second-factor
+    point: Choose your Second Factor Consciously
+    priority: Essential
+    vhsOnly: true
+    details: >-
+      Not every second factor is equally strong. From weakest to strongest: code via email, code via SMS,
+      push confirmation on another device, code from an app (TOTP, e.g. Aegis, 2FAS or KeePassXC), a
+      security key file (.key), and strongest of all a physical FIDO2 security key (e.g. YubiKey, Nitrokey).
+      According to Microsoft, a second factor alone blocks over 99.9% of account attacks, so a weaker
+      factor is still far better than none. Never approve a push prompt unless you are signing in yourself.
   softwareLinks:
     - title: Password Managers
       url: https://awesome-privacy.xyz/essentials/password-managers
@@ -542,6 +553,16 @@
     details: >-
       Many modern web apps are JavaScript-based, so disabling it will greatly decrease your browsing experience.
       But if you really want to go all out, then it will really reduce your attack surface.
+
+  - id: vhs-clear-browsing-data-regularly
+    point: Clear Browsing Data Regularly
+    priority: Essential
+    vhsOnly: true
+    details: >-
+      Three levers reduce browser tracking: settings (switch search engine, restrict activity tracking and
+      cookies), regularly clearing temporary data (cookies, cache, site data, or automatically on close),
+      and extensions such as uBlock Origin, AdGuard, Ghostery or Privacy Badger. Re-check these settings
+      regularly, as updates sometimes reset them.
   softwareLinks:
     - title: Privacy Browsers
       url: https://github.com/Lissy93/awesome-privacy#browsers
@@ -858,6 +879,18 @@
     details: >-
       If all data flows through a central provider, you have to trust them with your data and meta-data. You cannot
       verify that the system running is authentic without back doors.
+
+  - id: vhs-harden-whatsapp-settings
+    point: Harden WhatsApp Settings
+    priority: Optional
+    vhsOnly: true
+    details: >-
+      If peer pressure keeps you on WhatsApp: under Settings › Privacy › Advanced enable
+      "Protect IP address in calls" (calls are relayed via WhatsApp servers, so the other person can't see
+      your IP) and "Disable link previews" (protects your IP from the destination of links you send).
+      Turn off the Google Drive / iCloud backup or enable end-to-end encrypted backup, block automatic media
+      downloads and restrict permissions. Meta still collects metadata, so for anything confidential
+      Signal, Threema or Matrix are better choices.
   softwareLinks:
     - title: Secure Messaging Apps
       url: https://github.com/Lissy93/awesome-privacy#encrypted-messaging
@@ -969,6 +1002,16 @@
       Social media is fundamentally un-private, so for maximum online security and privacy, avoid using any
       mainstream social networks.
 
+
+  - id: vhs-reset-ad-personalisation
+    point: Turn Off Ad Personalisation
+    priority: Optional
+    vhsOnly: true
+    details: >-
+      Advertisers pay for the perfect moment to show you an ad, and your behavioural data is what makes that
+      possible. In the settings of the big platforms (Meta "Ad preferences", Google "My Ad Center", TikTok
+      "Ads") you can limit personalised ads and the use of your off-platform activity. Many services also
+      offer an ad-free paid tier (freemium).
   softwareLinks:
     - title: Alternative Social Media
       url: https://github.com/Lissy93/awesome-privacy#social-networks
@@ -1124,6 +1167,17 @@
     details: >-
       Connecting to even a secure WiFi network increases your attack surface. Disabling your home WiFi and
       connect each device via Ethernet.
+
+  - id: vhs-block-ads-network-wide-with-dns
+    point: Block Ads Network-Wide with DNS
+    priority: Optional
+    vhsOnly: true
+    details: >-
+      DNS is the phone book of the internet. A self-hosted DNS filter such as
+      [Pi-hole](https://pi-hole.net) or [AdGuard Home](https://adguard.com/en/adguard-home/overview.html),
+      e.g. on a Raspberry Pi, blocks ad and tracking domains for every device on your home network, including
+      smart TVs and apps where no ad blocker can run. Limitation: DNS only blocks domains, not
+      fingerprinting, so you still need a good browser (e.g. Brave or Tor Browser).
   color: violet
   softwareLinks:
   - title: Virtual Private Networks
@@ -1538,6 +1592,40 @@
     details: >-
       Deploy canary tokens to detect unauthorized access to your files or emails faster and gather
       information about the intruder.
+
+  - id: vhs-keep-sensitive-data-out-of-cloud-ai
+    point: Keep Sensitive Data Out of Cloud AI
+    priority: Essential
+    vhsOnly: true
+    details: >-
+      Cloud AI services (ChatGPT, Gemini, Claude & co.) see everything you type.
+      Inputs are stored, may be used for training depending on your settings, and are linked to your account,
+      payment details and IP address; servers are mostly in the US. Health data, passwords, customer data and
+      ID documents never belong in a cloud AI. Also check in the settings whether your chats may be used for
+      training.
+
+  - id: vhs-consider-running-ai-locally
+    point: Consider Running AI Locally
+    priority: Advanced
+    vhsOnly: true
+    details: >-
+      With [Ollama](https://ollama.com) (Windows, macOS, Linux) language models run
+      directly on your own computer, so your data never leaves the device. 7B/8B models need roughly 8 GB of
+      graphics memory (VRAM). Local models are considerably weaker than large cloud models (smaller context,
+      often text-only), but your data stays with you.
+
+  - id: vhs-reduce-dependence-on-big-tech-clouds
+    point: Reduce Dependence on Big Tech Clouds
+    priority: Optional
+    vhsOnly: true
+    details: >-
+      Android pushes you towards Google Drive, iOS towards iCloud. Content there is
+      analysed automatically (e.g. objects, places and faces in photos), US authorities can access data held
+      by US companies even in EU data centres (CLOUD Act), and a locked account means losing your mail, photos
+      and contacts. Open-source alternative: [Nextcloud](https://nextcloud.com) for files, photos, contacts
+      and calendars – self-hosted (full control, but you are responsible for updates, 3-2-1 backups and
+      secure remote access via VPN rather than open ports) or at a hosting provider. Rule of thumb: more
+      control means more responsibility.
   color: pink
   softwareLinks:
   - title: Secure Operating Systems
@@ -1865,6 +1953,28 @@
     details: >-
       Opt for anonymous payment methods like cryptocurrencies to avoid entering identifiable information online.
 
+
+  - id: vhs-check-suspicious-links-before-clicking
+    point: Check Suspicious Links Before Clicking
+    priority: Essential
+    vhsOnly: true
+    details: >-
+      Typical traps: `sparkasse.de.sicherheit-kunden.com/login` and `www.postbank.de.verify-id.top` (the real
+      domain is the part right before the first slash), `sparkasse-sicherheit.de` (sounds real, isn't),
+      link shorteners like bit.ly, and `paypaI.com` with a capital i. Check addresses with
+      [VirusTotal](https://www.virustotal.com), [urlscan.io](https://urlscan.io) (shows a screenshot, the
+      real destination and redirects, and expands short links),
+      [Google Safe Browsing](https://transparencyreport.google.com/safe-browsing/search), and
+      [Punycoder](https://www.punycoder.com) (reveals look-alike characters).
+
+  - id: vhs-be-aware-of-ai-scams
+    point: Be Aware of AI Scams
+    priority: Essential
+    vhsOnly: true
+    details: >-
+      AI makes it easy to produce flawless phishing emails, fake images and even cloned voices of people you
+      know. Spelling mistakes are no longer a reliable warning sign. Agree on a family code word for
+      emergencies, and always call back on a number you already know before sending money.
   color: indigo
 
 - title: Physical Security

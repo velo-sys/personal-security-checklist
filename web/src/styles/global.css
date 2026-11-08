@@ -1,4 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@900&family=Poppins&display=swap');
+/* Fonts are self-hosted (no Google Fonts request, GDPR-friendly) */
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/poppins-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+}
 
 h1,
 h2,
@@ -6,7 +24,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Catamaran', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 }
 
 p,

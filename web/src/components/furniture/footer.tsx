@@ -1,28 +1,34 @@
 import { component$ } from '@builder.io/qwik';
 
+import { useI18n } from '~/i18n';
+import { LICENSE_URL, REPO_URL, UPSTREAM_AUTHOR, UPSTREAM_AUTHOR_URL, UPSTREAM_SITE } from '~/data/site';
+
 export default component$(() => {
-  const ghLink = 'https://github.com/Lissy93/personal-security-checklist/';
-  const licenseLink = 'https://github.com/Lissy93/personal-security-checklist/blob/master/LICENSE';
-  const authorLink = 'https://aliciasykes.com';
+  const { t } = useI18n();
   const currentYear = new Date().getFullYear();
 
   return (
     <footer class="footer footer-center px-4 py-2 mt-4 text-base-content bg-base-200/25">
       <aside>
         <p>
-          Licensed under{' '}
-          <a href={licenseLink} class="link link-primary">
-            MIT
+          {t('footerFork')}{' '}
+          <a href={UPSTREAM_SITE} class="link link-primary">
+            Digital Defense
           </a>{' '}
-          - ©{' '}
-          <a href={authorLink} class="link link-primary">
-            Alicia Sykes
+          {t('footerBy')}{' '}
+          <a href={UPSTREAM_AUTHOR_URL} class="link link-primary">
+            {UPSTREAM_AUTHOR}
           </a>{' '}
-          2019 - {currentYear} - View source on{' '}
-          <a href={ghLink} class="link link-primary">
+          (2019 - {currentYear}) · {t('footerLicense')}{' '}
+          <a href={LICENSE_URL} class="link link-primary">
+            CC BY 4.0
+          </a>{' '}
+          · {t('footerSource')}{' '}
+          <a href={REPO_URL} class="link link-primary">
             GitHub
           </a>
         </p>
+        <p class="text-xs opacity-70">{t('footerChanges')}</p>
       </aside>
     </footer>
   );

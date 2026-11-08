@@ -4,10 +4,12 @@ import { ChecklistContext } from '~/store/checklist-context';
 import { useLocalStorage } from '~/hooks/useLocalStorage';
 import { useChecklist } from '~/store/local-checklist-store';
 import type { Section } from '~/types/PSC';
+import { useI18n, itemId } from '~/i18n';
 
 export default component$(() => {
   const checklists = useContext(ChecklistContext);
   const localChecklist = useChecklist();
+  const { t, link } = useI18n();
 
   const [completed, setCompleted] = useLocalStorage('PSC_PROGRESS', {});
 
@@ -25,7 +27,7 @@ export default component$(() => {
             </div>
             <div class="collapse-content">
               {section.checklist.map((item, index) => {
-                const pointId = item.point.toLowerCase().replace(/ /g, '-');
+                const pointId = itemId(item);
                 return (
                   <div key={index} class="flex justify-between">
                     <label class="flex items gap-2" for={`check-${index}`}>
@@ -48,9 +50,9 @@ export default component$(() => {
                 );
               })}
               <div class="card-actions justify-end">
-                <a href={`/checklist/${section.slug}`}>
+                <a href={link(`/checklist/${section.slug}`)}>
                   <button class={`btn text-base-100 bg-${section.color}-400 hover:bg-${section.color}-600`}>
-                    View Full Checklist ➜
+                    {t('viewFullChecklist')}
                   </button>
                 </a>
               </div>

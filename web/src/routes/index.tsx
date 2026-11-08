@@ -8,6 +8,7 @@ import Progress from '~/components/psc/progress';
 import { ChecklistContext } from '~/store/checklist-context';
 
 import { useChecklist } from '~/store/local-checklist-store';
+import { langFromPath, strings } from '~/i18n';
 
 export default component$(() => {
   const checklists = useContext(ChecklistContext);
@@ -23,12 +24,10 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: 'Digital Defense',
-  meta: [
-    {
-      name: 'description',
-      content: 'The ultimate personal security checklist, for securing your digital life.',
-    },
-  ],
+export const head: DocumentHead = ({ url }) => {
+  const lang = langFromPath(url.pathname);
+  return {
+    title: `${strings[lang].siteName} – ${strings[lang].heroTitle}`,
+    meta: [{ name: 'description', content: strings[lang].siteTagline }],
+  };
 };
