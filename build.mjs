@@ -1,14 +1,13 @@
 // Builds a single, self-contained, offline HTML file from the checklist YAML files.
-// Usage: node local/build.mjs  ->  local/dist/Sicherheits-Checkliste.html
+// Usage: npm install && npm run build  ->  dist/Sicherheits-Checkliste.html
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const root = join(here, '..');
-// Reuse the parsers already installed for the web app
-const require = createRequire(join(root, 'web', 'package.json'));
+const root = here;
+const require = createRequire(import.meta.url);
 const yaml = require('js-yaml');
 const { marked } = require('marked');
 
@@ -48,8 +47,8 @@ if (new Set(flat).size !== flat.length) throw new Error('Duplicate item IDs');
 /** JSON that is safe to embed inside a <script> element */
 const embed = (obj) => JSON.stringify(obj).replace(/</g, '\\u003c');
 
-const css = readFileSync(join(here, 'app.css'), 'utf8');
-const js = readFileSync(join(here, 'app.js'), 'utf8');
+const css = readFileSync(join(root, 'src', 'app.css'), 'utf8');
+const js = readFileSync(join(root, 'src', 'app.js'), 'utf8');
 if (/<\/script/i.test(js) || /<\/style/i.test(css)) throw new Error('Closing tag found in inlined source');
 
 const emptyProgress = { v: 1, done: {}, ignored: {}, lang: 'de', theme: 'dark', savedAt: 0 };
@@ -72,7 +71,7 @@ const html = `<!DOCTYPE html>
 </html>
 `;
 
-mkdirSync(join(here, 'dist'), { recursive: true });
-const out = join(here, 'dist', 'Sicherheits-Checkliste.html');
+mkdirSync(join(root, 'dist'), { recursive: true });
+const out = join(root, 'dist', 'Sicherheits-Checkliste.html');
 writeFileSync(out, html);
 console.log(`Wrote ${out} (${(html.length / 1024).toFixed(0)} KB, ${flat.length} items)`);
