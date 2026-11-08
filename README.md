@@ -2,6 +2,11 @@
 
 <div align="center">
 
+The checklist content is based on **[Digital Defense](https://github.com/Lissy93/personal-security-checklist)**
+by **[Alicia Sykes](https://github.com/Lissy93)** ([aliciasykes.com](https://aliciasykes.com)) — thank you!<br>
+Die Inhalte der Checkliste basieren auf **[Digital Defense](https://github.com/Lissy93/personal-security-checklist)**
+von **[Alicia Sykes](https://github.com/Lissy93)** — vielen Dank!
+
 ## 🤖 Vibecoded with Claude Code
 
 [![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-D97757?style=for-the-badge)](https://claude.com/claude-code)
@@ -13,11 +18,6 @@ into itself.
 **Diese komplette Offline-Version wurde von [Claude Code](https://claude.com/claude-code) geschrieben** — die
 deutsche Übersetzung aller Checklisten-Punkte, das Build-Skript und die Oberfläche in einer einzigen Datei,
 die ihren Fortschritt in sich selbst speichert.
-
-The checklist content is based on **[Digital Defense](https://github.com/Lissy93/personal-security-checklist)**
-by **[Alicia Sykes](https://github.com/Lissy93)** ([aliciasykes.com](https://aliciasykes.com)) — thank you!<br>
-Die Inhalte der Checkliste basieren auf **[Digital Defense](https://github.com/Lissy93/personal-security-checklist)**
-von **[Alicia Sykes](https://github.com/Lissy93)** — vielen Dank!
 
 **[🇩🇪 Deutsch](#-deutsch) · [🇬🇧 English](#-english)**
 
