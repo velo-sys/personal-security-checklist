@@ -35,6 +35,8 @@
       writeFail: 'Speichern in die Datei ist fehlgeschlagen. Ihr Fortschritt ist weiterhin im Browser gespeichert.',
       footer: 'Basiert auf „Digital Defense“ von Alicia Sykes (CC BY 4.0), deutsche Übersetzung und Erweiterungen. Läuft komplett offline, es werden keine Daten übertragen.',
       items: 'Punkte',
+      sources: 'Auf dem Laufenden bleiben',
+      sourcesHint: 'Offizielle Stellen mit aktuellen Warnungen und Ratgebern. Die Seiten öffnen sich erst beim Klick im Browser – diese Datei selbst lädt nichts aus dem Internet.',
     },
     en: {
       title: 'Personal Security Checklist',
@@ -53,8 +55,40 @@
       writeFail: 'Saving to the file failed. Your progress is still stored in the browser.',
       footer: 'Based on “Digital Defense” by Alicia Sykes (CC BY 4.0), German translation and additions. Runs fully offline, no data is transmitted.',
       items: 'items',
+      sources: 'Stay up to date',
+      sourcesHint: 'Official German sources with current warnings and guides (in German). Pages only open in your browser when you click – this file itself loads nothing from the internet.',
     },
   };
+
+  // Official sources to stay up to date. Plain links: nothing is loaded until the user clicks.
+  var SOURCES = [
+    {
+      name: 'BSI – Bundesamt für Sicherheit in der Informationstechnik',
+      links: [
+        { url: 'https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/verbraucherinnen-und-verbraucher_node.html',
+          de: 'Informationen für Verbraucherinnen und Verbraucher', en: 'Information for consumers' },
+        { url: 'https://wid.cert-bund.de/portal/wid/kurzinformationen',
+          de: 'Aktuelle Sicherheitswarnungen (WID)', en: 'Current security warnings (WID)' },
+        { url: 'https://www.bsi.bund.de/DE/Themen/Verbraucherinnen-und-Verbraucher/Informationen-und-Empfehlungen/Cyber-Sicherheitsempfehlungen/cyber-sicherheitsempfehlungen_node.html',
+          de: 'Cyber-Sicherheitsempfehlungen', en: 'Cyber security recommendations' },
+        { url: 'https://www.bsi.bund.de/DE/Service-Navi/Abonnements/Newsletter/Buerger-CERT-Abos/Newsletter-Einfach-Cybersicher/newsletter-einfach-cybersicher_node.html',
+          de: 'Newsletter „Einfach Cybersicher“', en: 'Newsletter “Einfach Cybersicher”' },
+      ],
+    },
+    {
+      name: 'Verbraucherzentrale',
+      links: [
+        { url: 'https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar',
+          de: 'Phishing-Radar: aktuelle Betrugsmails', en: 'Phishing radar: current scam emails' },
+        { url: 'https://www.verbraucherzentrale.de/fakeshopfinder-71560',
+          de: 'Fakeshop-Finder: Online-Shop prüfen', en: 'Fake shop finder: check an online shop' },
+        { url: 'https://www.verbraucherzentrale.de/wissen/digitale-welt/apps-und-software/android-und-ios-apptracking-abschalten-59791',
+          de: 'Android und iOS: App-Tracking abschalten', en: 'Android and iOS: turn off app tracking' },
+        { url: 'https://www.verbraucherzentrale.de/wissen/digitale-welt',
+          de: 'Ratgeber Digitale Welt', en: 'Digital world guides' },
+      ],
+    },
+  ];
 
   // ---------- state ----------
   function blank() { return { v: 1, done: {}, ignored: {}, lang: 'de', theme: 'dark', savedAt: 0 }; }
@@ -269,7 +303,17 @@
     return '<section class="hero"><h1>' + esc(t('title')) + '</h1><p>' + esc(t('subtitle')) + '</p></section>' +
       '<section class="overview"><div class="panel"><h2>' + esc(t('overall')) + '</h2><p class="big">' + all.done + ' ' + esc(t('of')) + ' ' +
       all.total + ' ' + esc(t('doneItems')) + (all.ignored ? ' · ' + all.ignored + ' ' + esc(t('ignoredN')) : '') + '</p>' + bar(all.pct) +
-      '<div class="levels">' + levels + '</div></div></section><section class="grid">' + cards + '</section>';
+      '<div class="levels">' + levels + '</div></div></section><section class="grid">' + cards + '</section>' + sourcesPanel();
+  }
+
+  function sourcesPanel() {
+    var cols = SOURCES.map(function (src) {
+      return '<div class="source"><h3>' + esc(src.name) + '</h3><ul>' + src.links.map(function (l) {
+        return '<li><a href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">' + esc(l[state.lang]) + ' ↗</a></li>';
+      }).join('') + '</ul></div>';
+    }).join('');
+    return '<section class="panel sources"><h2>' + esc(t('sources')) + '</h2><p class="hint">' + esc(t('sourcesHint')) + '</p>' +
+      '<div class="source-grid">' + cols + '</div></section>';
   }
 
   function sectionView(slug) {

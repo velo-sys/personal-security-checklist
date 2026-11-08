@@ -1,6 +1,6 @@
 {
   "name": "sicherheits-checkliste-offline",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Persönliche Sicherheits-Checkliste als einzelne Offline-HTML-Datei (DE/EN), speichert den Fortschritt in sich selbst",
   "type": "module",

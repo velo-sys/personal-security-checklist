@@ -1427,7 +1427,7 @@
       Ab Android 12 können Sie die Werbe-ID löschen (Einstellungen › Datenschutz › Werbung › Werbe-ID
       löschen). Unter iOS deaktivieren Sie „Apps erlauben, Tracking anzufordern“ (Datenschutz & Sicherheit ›
       Tracking) und personalisierte Werbung von Apple. Anleitung:
-      [Verbraucherzentrale – App-Tracking abschalten](https://www.verbraucherzentrale.de/wissen/digitale-welt/apps-und-software/android-und-ios-apptracking-abschalten-so-gehts-60451).
+      [Verbraucherzentrale – App-Tracking abschalten](https://www.verbraucherzentrale.de/wissen/digitale-welt/apps-und-software/android-und-ios-apptracking-abschalten-59791).
       Auf Huawei-Geräten heißt die Kennung OAID.
 
   - id: erase-after-too-many-login-attempts
@@ -2111,7 +2111,7 @@
       `/`; Vorsicht bei Tricks wie `paypaI.com` mit großem i), **keine Dateianhänge öffnen** und **mit dem
       vermeintlichen Absender über einen bekannten Weg Kontakt aufnehmen**. Dazu: 2FA nutzen und Passwörter
       nicht wiederverwenden. Aktuelle Warnungen gibt es beim
-      [Phishing-Radar der Verbraucherzentrale](https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar/phishingradar-aktuelle-warnungen-6061).
+      [Phishing-Radar der Verbraucherzentrale](https://www.verbraucherzentrale.de/wissen/digitale-welt/phishingradar).
 
   - id: human-watch-out-for-stalkerware
     point: Auf Stalkerware achten
