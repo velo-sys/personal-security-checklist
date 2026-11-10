@@ -19,6 +19,11 @@ const md = (text) =>
 
 const itemId = (item) => item.id || item.point.toLowerCase().replace(/ /g, '-');
 
+// Basics first: within each section, Essential items come before Optional, then Advanced
+// (stable sort, so the original order is kept inside each level)
+const RANK = { essential: 0, optional: 1, advanced: 2 };
+const byPriority = (a, b) => (RANK[a.priority] ?? 9) - (RANK[b.priority] ?? 9);
+
 const load = (file) =>
   yaml.load(readFileSync(join(root, file), 'utf8')).map((s) => ({
     slug: s.slug,
@@ -33,7 +38,7 @@ const load = (file) =>
       point: i.point,
       priority: i.priority.toLowerCase(),
       details: md(i.details),
-    })),
+    })).sort(byPriority),
   }));
 
 const data = { en: load('personal-security-checklist.yml'), de: load('personal-security-checklist.de.yml') };
@@ -41,6 +46,8 @@ const data = { en: load('personal-security-checklist.yml'), de: load('personal-s
 // Sanity checks: both languages must have identical, unique item IDs
 const ids = (d) => d.flatMap((s) => s.items.map((i) => `${s.slug}/${i.id}`));
 if (JSON.stringify(ids(data.en)) !== JSON.stringify(ids(data.de))) throw new Error('EN/DE item IDs differ');
+const prios = (d) => d.flatMap((s) => s.items.map((i) => i.priority));
+if (JSON.stringify(prios(data.en)) !== JSON.stringify(prios(data.de))) throw new Error('EN/DE priorities differ');
 const flat = data.en.flatMap((s) => s.items.map((i) => i.id));
 if (new Set(flat).size !== flat.length) throw new Error('Duplicate item IDs');
 
