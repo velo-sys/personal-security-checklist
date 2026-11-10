@@ -94,6 +94,8 @@
       links: [
         { only: 'de', url: 'https://www.youtube.com/@ct3003',
           de: 'c\u2019t 3003 (YouTube): Technik, Selbst-Hosting, Datenschutz' },
+        { only: 'de', url: 'https://www.heise.de/security',
+          de: 'heise Security: aktuelle Sicherheitsmeldungen und Warnungen' },
         { only: 'en', url: 'https://www.youtube.com/@NetworkChuck',
           en: 'NetworkChuck (YouTube): networking, self-hosting, security' },
       ],
