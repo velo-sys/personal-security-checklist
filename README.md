@@ -35,14 +35,15 @@ Ihr Fortschritt wird **in der Datei selbst** gespeichert.
 
 ### Funktionen
 
-**12 Bereiche mit 268 Punkten**, jeweils eingestuft als *Grundlegend*, *Optional* oder *Fortgeschritten*:
+**13 Bereiche mit 276 Punkten**, jeweils eingestuft als *Grundlegend*, *Optional* oder *Fortgeschritten*:
 
 | Bereich | Bereich | Bereich |
 |---|---|---|
-| 🔑 Anmeldung & Passwörter | 🌐 Surfen im Web | ✉️ E-Mail |
-| 💬 Messenger | 👥 Soziale Medien | 📶 Netzwerke |
-| 📱 Smartphone & Tablet | 💻 Computer | 🏠 Smart Home |
-| 💳 Finanzen | 🧠 Faktor Mensch | 🔒 Physische Sicherheit |
+| 🔑 Anmeldung & Passwörter | 🌐 Surfen im Web | 🤖 KI & Chatbots |
+| ✉️ E-Mail | 💬 Messenger | 👥 Soziale Medien |
+| 📶 Netzwerke | 📱 Smartphone & Tablet | 💻 Computer |
+| 🏠 Smart Home | 💳 Finanzen | 🧠 Faktor Mensch |
+| 🔒 Physische Sicherheit | | |
 
 **Außerdem:**
 
@@ -122,14 +123,15 @@ A single HTML file with more than 260 tips to secure your digital life and prote
 
 ### Features
 
-**12 sections with 268 items**, each rated *Essential*, *Optional* or *Advanced*:
+**13 sections with 276 items**, each rated *Essential*, *Optional* or *Advanced*:
 
 | Section | Section | Section |
 |---|---|---|
-| 🔑 Authentication | 🌐 Web Browsing | ✉️ Email |
-| 💬 Messaging | 👥 Social Media | 📶 Networks |
-| 📱 Mobile Devices | 💻 Personal Computers | 🏠 Smart Home |
-| 💳 Personal Finance | 🧠 Human Aspect | 🔒 Physical Security |
+| 🔑 Authentication | 🌐 Web Browsing | 🤖 AI & Chatbots |
+| ✉️ Email | 💬 Messaging | 👥 Social Media |
+| 📶 Networks | 📱 Mobile Devices | 💻 Personal Computers |
+| 🏠 Smart Home | 💳 Personal Finance | 🧠 Human Aspect |
+| 🔒 Physical Security | | |
 
 **On top of that:**
 

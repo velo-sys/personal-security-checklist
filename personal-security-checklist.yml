@@ -295,7 +295,7 @@
       user.js configs. See more: [Privacy Browsers](https://github.com/Lissy93/awesome-privacy#browsers).
 
   - point: Use a Private Search Engine
-    priority: Essential
+    priority: Optional
     details: >-
       Using a privacy-preserving, non-tracking search engine, will reduce risk that your search terms are not
       logged, or used against you. Consider [DuckDuckGo](https://awesome-privacy.xyz/essentials/search-engines/duckduckgo),
@@ -336,7 +336,7 @@
       for [Firefox](https://awesome-privacy.xyz/essentials/browsers/firefox), Chrome, Edge and Safari browsers on how to enable their HTTPS secure protections.
 
   - point: Use DNS-over-HTTPS
-    priority: Essential
+    priority: Optional
     details: >-
       Traditional DNS makes requests in plain text for everyone to see. It allows for eavesdropping and
       manipulation of DNS data through man-in-the-middle attacks. Whereas DNS-over-HTTPS performs DNS
@@ -345,7 +345,7 @@
       Note that DoH comes with its own issues, mostly preventing web filtering.
 
   - point: Compartmentalise Your Browsing
-    priority: Essential
+    priority: Optional
     details: >-
       Compartmentalisation is really important to keep different aspects of your browsing separate. For
       example, using different profiles for work, general browsing, social media, online shopping etc
@@ -359,21 +359,21 @@
       [Tor](https://awesome-privacy.xyz/networking/anonymity-networks/tor) etc).
 
   - point: Use Incognito
-    priority: Essential
+    priority: Optional
     details: >-
       When using someone else's machine, ensure that you're in a private/ incognito session. This will
       prevent browser history, cookies and some data being saved, but is not fool-proof- you can still
       be tracked.
 
   - point: Understand Your Browser Fingerprint
-    priority: Essential
+    priority: Optional
     details: >-
       Browser Fingerprinting is an incredibly accurate method of tracking, where a website identifies you
       based on your device information. You can view your fingerprint at amiunique.org- The aim is to be
       as un-unique as possible.
 
   - point: Manage Cookies
-    priority: Essential
+    priority: Optional
     details: >-
       Clearing cookies regularly is one step you can take to help reduce websites from tracking you.
       Cookies may also store your session token, which if captured, would allow someone to access your
@@ -467,35 +467,35 @@
       is compromised in any way. Instead, consider using your password manager's Notes feature.
 
   - point: Protect from Exfil Attack
-    priority: Optional
+    priority: Advanced
     details: >-
       The CSS Exfiltrate attack is a method where credentials and other sensitive details can be snagged with
       just pure CSS. You can stay protected,
       with the [CSS Exfil Protection](https://github.com/mlgualtieri/CSS-Exfil-Protection) plugin.
 
   - point: Deactivate ActiveX
-    priority: Optional
+    priority: Advanced
     details: >-
       ActiveX is a browser extension API that built into Microsoft IE, and enabled by default. It's not commonly
       used anymore, but since it gives plugins intimate access rights, and can be dangerous, therefore you should
       disable it.
 
   - point: Disable WebRTC
-    priority: Optional
+    priority: Advanced
     details: >-
       WebRTC allows high-quality audio/video communication and peer-to-peer file-sharing straight from the
       browser. However it can leak your real IP address when using a proxy or some VPNs. You can
       [check if you're affected here](https://browserleaks.com/webrtc).
 
   - point: Spoof HTML5 Canvas Sig
-    priority: Optional
+    priority: Advanced
     details: >-
       Canvas Fingerprinting allows websites to identify and track users very accurately. You can use the
       Canvas-Fingerprint-Blocker extension to spoof your fingerprint or
       use [Tor](https://awesome-privacy.xyz/networking/anonymity-networks/tor).
 
   - point: Spoof User Agent
-    priority: Optional
+    priority: Advanced
     details: >-
       The user agent tells the website what device, browser and version you are using. Switching user agent
       periodically is one small step you can take to become less unique.
@@ -507,27 +507,27 @@
       it is rarely used, it may also add to your signature, making you more unique.
 
   - point: Prevent HSTS Tracking
-    priority: Optional
+    priority: Advanced
     details: >-
       HSTS was designed to help secure websites, but privacy concerns have been raised as it allowed site
       operators to plant super-cookies. It can be disabled by visiting chrome://net-internals/#hsts in
       Chromium-based browsers.
 
   - point: Prevent Automatic Browser Connections
-    priority: Optional
+    priority: Advanced
     details: >-
       Even when you are not using your browser, it may call home to report on usage activity, analytics and
       diagnostics. You may wish to disable some of this, which can be done through the settings.
 
   - point: Enable 1st-Party Isolation
-    priority: Optional
+    priority: Advanced
     details: >-
       [First Party Isolation](https://addons.mozilla.org/en-US/firefox/addon/first-party-isolation/) means
       that all identifier sources and browser state are scoped using the URL bar
       domain, this can greatly reduce tracking.
 
   - point: Strip Tracking Params from URLs
-    priority: Advanced
+    priority: Optional
     details: >-
       Websites often append additional GET parameters to URLs that you click, to identify information like
       source/referrer. You can sanitize manually,
@@ -555,7 +555,7 @@
 
   - id: clear-browsing-data-regularly
     point: Clear Browsing Data Regularly
-    priority: Essential
+    priority: Optional
     details: >-
       Three levers reduce browser tracking: settings (switch search engine, restrict activity tracking and
       cookies), regularly clearing temporary data (cookies, cache, site data, or automatically on close),
@@ -571,6 +571,124 @@
     - title: Browser & Bookmark Sync
       url: https://github.com/Lissy93/awesome-privacy#browser-sync
   color: emerald
+
+- title: AI & Chatbots
+  slug: ai
+  description: Using ChatGPT, Gemini, Copilot & co. safely
+  icon: ai
+  color: orange
+  intro: >-
+    AI chatbots have become part of everyday life: in the browser, as apps and built into Windows, Android,
+    WhatsApp, Instagram or Office. Everything you type, upload or say there ends up with the provider. At the
+    same time, scammers use AI to make fakes more convincing. These points apply to every device: computer,
+    smartphone and tablet.
+  checklist:
+  - id: keep-sensitive-data-out-of-cloud-ai
+    point: Keep Sensitive Data Out of Cloud AI
+    priority: Essential
+    details: >-
+      Cloud AI services (ChatGPT, Gemini, Claude, Copilot, Meta AI & co.) see everything you type or upload.
+      Inputs are stored, may be read by the provider's staff and are linked to your account, payment details
+      and IP address; servers are mostly in the US. Health data, passwords, PINs, bank details, ID data and
+      photos of documents never belong in a cloud AI, and neither does other people's data (customers,
+      colleagues, family) or your employer's internal documents. If you want help with wording, replace names
+      and numbers with placeholders first.
+
+  - id: ai-disable-training
+    point: Turn Off Training on Your Chats
+    priority: Essential
+    details: >-
+      Many providers use your conversations by default to develop their models. Turn this off in the settings,
+      e.g. in ChatGPT under Settings › Data Controls › "Improve the model for everyone", in Claude under
+      Settings › Privacy, and in Gemini and Copilot in the activity or privacy settings. The switches are named
+      differently per provider and occasionally move with updates, so check now and then. In the EU, Meta also
+      trains its AI on public Facebook and Instagram posts; you can object in the Privacy Center.
+
+  - id: ai-check-answers
+    point: Don't Blindly Trust AI Answers
+    priority: Essential
+    details: >-
+      Chatbots always sound confident, but regularly make up facts, sources, links and even phone numbers.
+      Double-check answers about health, law, money and security against a reputable source. Take hotlines,
+      support numbers and download links only from the company's official website: scammers deliberately plant
+      fake numbers that then show up in AI answers. Only run commands or scripts an AI suggests if you
+      understand what they do.
+
+  - id: ai-use-official-apps
+    point: Only Use Official AI Apps and Extensions
+    priority: Essential
+    details: >-
+      App stores and browser extension stores are full of copycats called "ChatGPT" or "AI Chat" that harvest
+      data or sign you up for expensive subscriptions. Only install the real provider's app (check the
+      developer name) or use the official website directly. Extensions that bring "AI to every page" can read
+      everything you do in the browser.
+
+  - id: ai-review-built-in-features
+    point: Review Built-in AI Features
+    priority: Essential
+    details: >-
+      AI is now built into many devices and apps, often without you noticing: Copilot and Recall on Windows
+      (Recall continuously takes screenshots: Settings › Privacy & security › Recall & snapshots), Gemini on
+      Android, Apple Intelligence with ChatGPT integration on the iPhone, Meta AI in WhatsApp and Instagram, AI
+      summaries in Gmail, Outlook and Office. Turn off what you don't need. In WhatsApp, anything you send to
+      Meta AI or mention with "@Meta AI" in a group is processed by Meta; "Advanced Chat Privacy" in a chat or
+      group blocks this.
+
+  - id: be-aware-of-ai-scams
+    point: Be Aware of AI Scams
+    priority: Essential
+    details: >-
+      AI makes it easy to produce flawless phishing emails, fake images and videos and even cloned voices of
+      people you know. Spelling mistakes are no longer a reliable warning sign. Agree on a family code word for
+      emergencies, and always call back on a number you already know before sending money. Video calls from
+      "bosses", "celebrities" or "bank advisors" can be faked too.
+
+  - id: ai-secure-account
+    point: Secure Your AI Account
+    priority: Optional
+    details: >-
+      Your chat history often holds more personal information than any inbox. Secure the account like your
+      email account: a unique, strong password and two-factor authentication. Check now and then which devices
+      you are signed in on, and sign out again on other people's devices.
+
+  - id: ai-clean-up-history-and-memory
+    point: Clean Up Chat History and "Memory"
+    priority: Optional
+    details: >-
+      Many chatbots remember things about you across chats ("memory", "personalization"). Check in the
+      settings what is stored, delete what doesn't belong there, and turn the feature off if you don't need it.
+      For one-off questions, use a temporary chat without history. It's best to delete old chats regularly.
+
+  - id: ai-careful-with-shared-chats
+    point: Be Careful When Sharing Chats
+    priority: Optional
+    details: >-
+      A shared chat link is visible to anyone who has the link; it can be forwarded, and shared chats have
+      shown up in search engines in the past. Check what's in the conversation before sharing, and delete links
+      you no longer need in the settings.
+
+  - id: ai-limit-connected-access
+    point: Give AI Assistants Only the Access They Need
+    priority: Advanced
+    details: >-
+      AI assistants can be connected to email, calendar, cloud storage and the browser, or act on their own on
+      the web as "agents". Every connection gives the provider access to that data. Hidden instructions in web
+      pages, emails or documents can also trick the AI into unwanted actions ("prompt injection"). Only connect
+      what you really need, don't allow payments, passwords or sending messages without your confirmation, and
+      disconnect unused connections again.
+
+  - id: consider-running-ai-locally
+    point: Self-Host Your AI
+    priority: Advanced
+    details: >-
+      If you want to use AI without any cloud, run it yourself. On your own computer,
+      [Ollama](https://ollama.com) or [LM Studio](https://lmstudio.ai) (Windows, macOS, Linux) do the job;
+      [Open WebUI](https://openwebui.com) adds a ChatGPT-like chat interface, also on a home server or NAS the
+      whole family can use. Your data never leaves your network. 7B/8B models need roughly 8 GB of graphics
+      memory (VRAM). Local models are considerably weaker than large cloud models (smaller context, often
+      text-only). Important: never expose the AI server directly to the internet; make it reachable only in
+      your home network or via VPN, set a password, install updates and only download models from known
+      sources.
 
 - title: Email
   slug: email
@@ -626,7 +744,7 @@
       is often used for tracking. For more info, see [this article](https://www.theverge.com/2019/7/3/20680903/email-pixel-trackers-how-to-stop-images-automatic-download).
 
   - point: Use Plaintext
-    priority: Optional
+    priority: Advanced
     details: >-
       There are two main types of emails on the internet: plaintext and HTML. The former is strongly preferred
       for privacy & security as HTML messages often include identifiers in links and inline images, which can
@@ -641,7 +759,7 @@
       access to all your emails and their contents, which poses significant security and privacy risks.
 
   - point: Don't Share Sensitive Data via Email
-    priority: Optional
+    priority: Essential
     details: >-
       Emails are very easily intercepted. Furthermore, you can’t be sure of how secure your recipient's
       environment is. Therefore, emails cannot be considered safe for exchanging confidential information,
@@ -665,7 +783,7 @@
       messages, allowing you to do so without your private key leaving the USB device.
 
   - point: Use Aliasing / Anonymous Forwarding
-    priority: Advanced
+    priority: Optional
     details: >-
       Email aliasing allows messages to be sent to [anything]@my-domain.com and still land in your primary inbox.
       Effectively allowing you to use a different, unique email address for each service you sign up for. This means
@@ -699,7 +817,7 @@
       email signatures.
 
   - point: Be Careful with Auto-Replies
-    priority: Advanced
+    priority: Optional
     details: >-
       Out-of-office automatic replies are very useful for informing people there will be a delay in replying, but all
       too often people reveal too much information- which can be used in social engineering and targeted attacks.
@@ -769,7 +887,7 @@
       data is stored.
 
   - point: Use only Open Source Messaging Platforms
-    priority: Essential
+    priority: Optional
     details: >-
       If code is open source then it can be independently examined and audited by anyone qualified to do
       so, to ensure that there are no backdoors, vulnerabilities, or other security issues.
@@ -787,25 +905,25 @@
       Disable optional non-security features such as read receipt, last online, and typing notification.
 
   - point: Ensure your Recipients Environment is Secure
-    priority: Essential
+    priority: Optional
     details: >-
       Your conversation can only be as secure as the weakest link. Often the easiest way to infiltrate a
       communications channel is to target the individual or node with the least protection.
 
   - point: Disable Cloud Services
-    priority: Essential
+    priority: Optional
     details: >-
       Some mobile messaging apps offer a web or desktop companion. This not only increases attack surface but
       it has been linked to several critical security issues, and should therefore be avoided, if possible.
 
   - point: Secure Group Chats
-    priority: Essential
+    priority: Optional
     details: >-
       The risk of compromise rises exponentially, the more participants are in a group, as the attack surface
       increases. Periodically check that all participants are legitimate.
 
   - point: Create a Safe Environment for Communication
-    priority: Essential
+    priority: Optional
     details: >-
       There are several stages where your digital communications could be monitored or intercepted. This includes:
       your or your participants' device, your ISP, national gateway or government logging, the messaging provider,
@@ -824,7 +942,7 @@
       photo, audio recording, video, or document you may be revealing more than you intended to.
 
   - point: Defang URLs
-    priority: Optional
+    priority: Advanced
     details: >-
       Sending links via various services can unintentionally expose your personal information. This is because,
       when a thumbnail or preview is generated- it happens on the client-side.
@@ -880,7 +998,7 @@
 
   - id: harden-whatsapp-settings
     point: Harden WhatsApp Settings
-    priority: Optional
+    priority: Essential
     details: >-
       If peer pressure keeps you on WhatsApp: under Settings › Privacy › Advanced enable
       "Protect IP address in calls" (calls are relayed via WhatsApp servers, so the other person can't see
@@ -1028,7 +1146,7 @@
     including configuring your router and setting up a VPN.
   checklist:
   - point: Use a VPN
-    priority: Essential
+    priority: Optional
     details: >-
       Use a reputable, paid-for VPN. This can help protect sites you visit from logging your real IP, reduce
       the amount of data your ISP can collect, and increase protection on public WiFi.
@@ -1052,19 +1170,19 @@
       sometimes add features or improve the performance of your router.
 
   - point: Implement a Network-Wide VPN
-    priority: Optional
+    priority: Advanced
     details: >-
       If you configure your VPN on your router, firewall, or home server, then traffic from all devices will
       be encrypted and routed through it, without needing individual VPN apps.
 
   - point: Protect against DNS leaks
-    priority: Optional
+    priority: Advanced
     details: >-
       When using a VPN, make sure your DNS requests go through it, not your ISP. Most good VPN apps do this
       by default, but you can check with a [DNS leak test](https://www.dnsleaktest.com).
 
   - point: Use a secure VPN Protocol
-    priority: Optional
+    priority: Advanced
     details: >-
       OpenVPN and WireGuard are open source, lightweight, and secure tunneling protocols. Avoid using PPTP
       or SSTP.
@@ -1082,13 +1200,13 @@
       receive regular security updates.
 
   - point: Whitelist MAC Addresses
-    priority: Optional
+    priority: Advanced
     details: >-
       You can whitelist MAC addresses in your router settings, disallowing any unknown devices to immediately
       connect to your network, even if they know your credentials.
 
   - point: Change the Router’s Local IP Address
-    priority: Optional
+    priority: Advanced
     details: >-
       It is possible for a malicious script in your web browser to exploit a cross-site scripting vulnerability,
       accessing known-vulnerable routers at their local IP address and tampering with them.
@@ -1124,7 +1242,7 @@
       devices on the network.
 
   - point: Kill unused processes and services on your router
-    priority: Optional
+    priority: Advanced
     details: >-
       Services like Telnet and SSH that provide command-line access to devices should never be exposed to the
       internet and should also be disabled on the local network unless they're actually needed.
@@ -1147,7 +1265,7 @@
       if an attacker is able to gain access.
 
   - point: Manage Range Correctly
-    priority: Optional
+    priority: Advanced
     details: >-
       It's common to want to pump your router's range to the max, but if you reside in a smaller flat, your
       attack surface is increased when your WiFi network can be picked up across the street.
@@ -1166,7 +1284,7 @@
 
   - id: block-ads-network-wide-with-dns
     point: Block Ads Network-Wide with DNS
-    priority: Optional
+    priority: Advanced
     details: >-
       DNS is the phone book of the internet. A self-hosted DNS filter such as
       [Pi-hole](https://pi-hole.net) or [AdGuard Home](https://adguard.com/en/adguard-home/overview.html),
@@ -1302,7 +1420,7 @@
       lets you search for any app and see which trackers are embedded in it.
 
   - point: Use a Mobile Firewall
-    priority: Optional
+    priority: Advanced
     details: >-
       To prevent applications from leaking privacy-sensitive data, you can install a firewall app.
 
@@ -1312,7 +1430,7 @@
       For Android, SuperFreeze makes it possible to entirely freeze all background activities on a per-app basis.
 
   - point: Sandbox Mobile Apps
-    priority: Optional
+    priority: Advanced
     details: >-
       Prevent permission-hungry apps from accessing your private data with [Island](https://awesome-privacy.xyz/security-tools/mobile-apps/island), a sandbox environment.
 
@@ -1416,10 +1534,10 @@
       prevent unauthorized access.
 
   - point: Disable Cortana or Siri
-    priority: Essential
+    priority: Optional
     details: >-
       Voice-controlled assistants can have privacy implications due to data sent back for processing. Disable
-      or limit their listening capabilities.
+      or limit their listening capabilities. AI assistants such as Copilot are covered in the "AI & Chatbots" section.
 
   - point: Review your Installed Apps
     priority: Essential
@@ -1434,18 +1552,18 @@
       information.
 
   - point: Disallow Usage Data from being sent to the Cloud
-    priority: Essential
+    priority: Optional
     details: >-
       Limit the amount of usage information or feedback sent to the cloud to protect your privacy.
 
   - point: Avoid Quick Unlock
-    priority: Essential
+    priority: Optional
     details: >-
       Use a strong password instead of biometrics or short PINs for unlocking your computer to enhance
       security.
 
   - point: Power Off Computer, instead of Standby
-    priority: Essential
+    priority: Optional
     details: >-
       Shut down your device when not in use, especially if your disk is encrypted, to keep data secure.
 
@@ -1484,7 +1602,7 @@
       unauthorized physical access.
 
   - point: Don't Charge Devices from your PC
-    priority: Optional
+    priority: Advanced
     details: >-
       Use a power bank or AC wall charger instead of your PC to avoid security risks associated with USB
       connections.
@@ -1506,13 +1624,13 @@
       Use key stroke encryption tools to protect against software keyloggers recording your keystrokes.
 
   - point: Check Keyboard Connection
-    priority: Optional
+    priority: Advanced
     details: >-
       Be vigilant for hardware keyloggers when using public or unfamiliar computers by checking keyboard
       connections.
 
   - point: Prevent Keystroke Injection Attacks
-    priority: Optional
+    priority: Advanced
     details: >-
       Lock your PC when away and consider using USBGuard or similar tools to protect against keystroke
       injection attacks.
@@ -1590,25 +1708,6 @@
       Deploy canary tokens to detect unauthorized access to your files or emails faster and gather
       information about the intruder.
 
-  - id: keep-sensitive-data-out-of-cloud-ai
-    point: Keep Sensitive Data Out of Cloud AI
-    priority: Essential
-    details: >-
-      Cloud AI services (ChatGPT, Gemini, Claude & co.) see everything you type.
-      Inputs are stored, may be used for training depending on your settings, and are linked to your account,
-      payment details and IP address; servers are mostly in the US. Health data, passwords, customer data and
-      ID documents never belong in a cloud AI. Also check in the settings whether your chats may be used for
-      training.
-
-  - id: consider-running-ai-locally
-    point: Consider Running AI Locally
-    priority: Advanced
-    details: >-
-      With [Ollama](https://ollama.com) (Windows, macOS, Linux) language models run
-      directly on your own computer, so your data never leaves the device. 7B/8B models need roughly 8 GB of
-      graphics memory (VRAM). Local models are considerably weaker than large cloud models (smaller context,
-      often text-only), but your data stays with you.
-
   - id: reduce-dependence-on-big-tech-clouds
     point: Reduce Dependence on Big Tech Clouds
     priority: Optional
@@ -1665,7 +1764,7 @@
     internet-connected home devices.
   checklist:
   - point: Rename devices to not specify brand/model
-    priority: Essential
+    priority: Optional
     details: >-
       Change default device names to something generic to prevent targeted attacks by obscuring brand or model information.
 
@@ -1685,7 +1784,7 @@
       Adjust app settings for strictest privacy controls and opt-out of data sharing with third parties wherever possible.
 
   - point: Don't link your smart home devices to your real identity
-    priority: Essential
+    priority: Optional
     details: >-
       Use anonymous usernames and passwords, avoiding sign-up/log-in via social media or other third-party services to maintain privacy.
 
@@ -1725,12 +1824,12 @@
       Use firewalls to block internet access for devices that don't need it, limiting operation to local network use.
 
   - point: Assess risks
-    priority: Advanced
+    priority: Optional
     details: >-
       Consider the privacy implications for all household members and adjust device settings for security and privacy, such as disabling devices at certain times.
 
   - point: Avoid smart devices you don't need
-    priority: Advanced
+    priority: Optional
     details: >-
       Every connected device adds risk. If something doesn't need to be smart, a regular version is the
       safer choice.
@@ -1857,12 +1956,12 @@
       Unattended devices can be compromised even with strong passwords. Use encryption and remote erase features like Find My Phone for lost devices.
 
   - point: Prevent Camfecting
-    priority: Essential
+    priority: Optional
     details: >-
       Protect against camfecting by using webcam covers and microphone blockers. Mute home assistants when not in use or discussing sensitive matters.
 
   - point: Stay protected from shoulder surfers
-    priority: Essential
+    priority: Optional
     details: >-
       Use privacy screens on laptops and mobiles to prevent others from reading your screen in public spaces.
 
@@ -1962,13 +2061,6 @@
       [Google Safe Browsing](https://transparencyreport.google.com/safe-browsing/search), and
       [Punycoder](https://www.punycoder.com) (reveals look-alike characters).
 
-  - id: be-aware-of-ai-scams
-    point: Be Aware of AI Scams
-    priority: Essential
-    details: >-
-      AI makes it easy to produce flawless phishing emails, fake images and even cloned voices of people you
-      know. Spelling mistakes are no longer a reliable warning sign. Agree on a family code word for
-      emergencies, and always call back on a number you already know before sending money.
   color: indigo
 
 - title: Physical Security
@@ -2005,13 +2097,13 @@
       identity theft and maintain confidentiality.
 
   - point: Opt-Out of Public Records
-    priority: Essential
+    priority: Optional
     details: |
       Contact people search websites to opt-out from listings that show persona
       information, using guides like Michael Bazzell's Personal Data Removal Workbook.
 
   - point: Watermark Documents
-    priority: Essential
+    priority: Optional
     details: |
       Add a watermark with the recipient's name and date to digital copies of
       personal documents to trace the source of a breach.
@@ -2026,7 +2118,7 @@
     details: Be aware of your surroundings and assess potential risks in new environments.
 
   - point: Secure Perimeter
-    priority: Essential
+    priority: Optional
     details: Ensure physical security of locations storing personal info devices, minimizing external access and using intrusion detection systems.
 
   - point: Physically Secure Devices

@@ -319,7 +319,7 @@
 
   - id: use-a-private-search-engine
     point: Datenschutzfreundliche Suchmaschine nutzen
-    priority: Essential
+    priority: Optional
     details: >-
       Eine Suchmaschine ohne Tracking verringert das Risiko, dass Ihre Suchbegriffe gespeichert oder gegen
       Sie verwendet werden. Gute Alternativen sind
@@ -362,7 +362,7 @@
 
   - id: use-dns-over-https
     point: DNS-over-HTTPS nutzen
-    priority: Essential
+    priority: Optional
     details: >-
       Klassische DNS-Anfragen (welche Adresse gehört zu welchem Namen?) laufen im Klartext und können
       mitgelesen oder manipuliert werden. DNS-over-HTTPS (oder DNS-over-TLS) verschlüsselt sie. Beliebte
@@ -375,7 +375,7 @@
 
   - id: compartmentalise-your-browsing
     point: Surfen in Bereiche aufteilen
-    priority: Essential
+    priority: Optional
     details: >-
       Trennen Sie verschiedene Lebensbereiche beim Surfen – etwa eigene Profile für Arbeit, allgemeines
       Surfen, soziale Medien und Online-Shopping. So können Datenhändler weniger Verbindungen herstellen.
@@ -387,14 +387,14 @@
 
   - id: use-incognito
     point: Inkognito-Modus nutzen
-    priority: Essential
+    priority: Optional
     details: >-
       Auf fremden Geräten sollten Sie ein privates/Inkognito-Fenster verwenden. Dann werden Verlauf, Cookies
       und manche Daten nicht gespeichert – unsichtbar sind Sie dadurch aber nicht, Tracking ist weiterhin möglich.
 
   - id: understand-your-browser-fingerprint
     point: Browser-Fingerabdruck verstehen
-    priority: Essential
+    priority: Optional
     details: >-
       Browser-Fingerprinting ist eine sehr genaue Tracking-Methode, bei der eine Website Sie anhand Ihrer
       Gerätedaten wiedererkennt. Ihren Fingerabdruck sehen Sie auf
@@ -406,7 +406,7 @@
 
   - id: manage-cookies
     point: Cookies verwalten
-    priority: Essential
+    priority: Optional
     details: >-
       Regelmäßiges Löschen von Cookies reduziert Tracking durch Websites. Cookies können außerdem Ihr
       Sitzungs-Token enthalten – wer es abgreift, kommt ohne Passwort in Ihr Konto. Löschen Sie Cookies
@@ -514,14 +514,14 @@
 
   - id: protect-from-exfil-attack
     point: Vor CSS-Exfiltration schützen
-    priority: Optional
+    priority: Advanced
     details: >-
       Beim „CSS Exfiltrate“-Angriff werden Zugangsdaten und andere sensible Daten allein mit CSS abgegriffen.
       Schutz bietet das Plugin [CSS Exfil Protection](https://github.com/mlgualtieri/CSS-Exfil-Protection).
 
   - id: deactivate-activex
     point: ActiveX deaktivieren
-    priority: Optional
+    priority: Advanced
     details: >-
       ActiveX ist eine Erweiterungsschnittstelle im alten Internet Explorer. Sie wird kaum noch genutzt, gibt
       Plugins aber weitreichende Rechte und ist gefährlich – deaktivieren Sie sie (bzw. nutzen Sie den
@@ -529,7 +529,7 @@
 
   - id: disable-webrtc
     point: WebRTC deaktivieren
-    priority: Optional
+    priority: Advanced
     details: >-
       WebRTC ermöglicht Audio-/Videoanrufe und Dateiaustausch direkt im Browser, kann aber Ihre echte
       IP-Adresse verraten, selbst bei Nutzung eines Proxys oder mancher VPNs.
@@ -537,7 +537,7 @@
 
   - id: spoof-html5-canvas-sig
     point: HTML5-Canvas-Signatur verschleiern
-    priority: Optional
+    priority: Advanced
     details: >-
       Canvas-Fingerprinting erlaubt es Websites, Nutzer sehr genau wiederzuerkennen. Abhilfe schaffen
       Erweiterungen wie Canvas-Fingerprint-Blocker, Brave (randomisiert den Fingerabdruck) oder der
@@ -545,7 +545,7 @@
 
   - id: spoof-user-agent
     point: User-Agent verschleiern
-    priority: Optional
+    priority: Advanced
     details: >-
       Der User-Agent verrät der Website Gerät, Browser und Version. Ein gängiger User-Agent macht Sie weniger
       einzigartig; wechseln Sie ihn nur gezielt, denn ein exotischer User-Agent fällt erst recht auf.
@@ -559,21 +559,21 @@
 
   - id: prevent-hsts-tracking
     point: HSTS-Tracking verhindern
-    priority: Optional
+    priority: Advanced
     details: >-
       HSTS soll Websites sicherer machen, wurde aber auch missbraucht, um „Super-Cookies“ zu setzen. In
       Chromium-basierten Browsern lässt sich das unter chrome://net-internals/#hsts bereinigen.
 
   - id: prevent-automatic-browser-connections
     point: Automatische Browser-Verbindungen unterbinden
-    priority: Optional
+    priority: Advanced
     details: >-
       Auch wenn Sie nicht surfen, sendet der Browser ggf. Nutzungsstatistiken, Analysen und Diagnosedaten
       nach Hause. Vieles davon lässt sich in den Einstellungen abschalten.
 
   - id: enable-1st-party-isolation
     point: First-Party-Isolation aktivieren
-    priority: Optional
+    priority: Advanced
     details: >-
       Bei [First Party Isolation](https://addons.mozilla.org/de/firefox/addon/first-party-isolation/) werden
       alle Kennungen und Browserdaten an die Domain in der Adressleiste gebunden – das reduziert seiten-
@@ -581,7 +581,7 @@
 
   - id: strip-tracking-params-from-urls
     point: Tracking-Parameter aus Links entfernen
-    priority: Advanced
+    priority: Optional
     details: >-
       Links enthalten oft angehängte Parameter (z. B. `?utm_source=…`, `?fbclid=…`), um Herkunft und
       Weiterleitung zu erfassen. Entfernen Sie diese manuell oder automatisch mit einer Erweiterung wie
@@ -613,7 +613,7 @@
 
   - id: clear-browsing-data-regularly
     point: Browserdaten regelmäßig löschen
-    priority: Essential
+    priority: Optional
     details: >-
       Gegen Tracking im Browser helfen drei Stellschrauben: Einstellungen (Suchmaschine ändern,
       Aktivitätsverfolgung und Cookies einschränken), das regelmäßige Löschen temporärer Daten (Cookies,
@@ -630,6 +630,127 @@
     - title: Browser- & Lesezeichen-Sync
       url: https://github.com/Lissy93/awesome-privacy#browser-sync
   color: emerald
+
+- title: KI & Chatbots
+  slug: ai
+  description: ChatGPT, Gemini, Copilot & Co. sicher nutzen
+  icon: ai
+  color: orange
+  intro: >-
+    KI-Chatbots sind Alltag geworden – im Browser, als App und fest eingebaut in Windows, Android, WhatsApp,
+    Instagram oder Office. Alles, was Sie dort eintippen, hochladen oder einsprechen, landet beim Anbieter.
+    Gleichzeitig nutzen Betrüger KI, um Fälschungen glaubwürdiger zu machen. Die Punkte hier gelten für jedes
+    Gerät: Computer, Smartphone und Tablet.
+  checklist:
+  - id: keep-sensitive-data-out-of-cloud-ai
+    point: Keine sensiblen Daten in Cloud-KI eingeben
+    priority: Essential
+    details: >-
+      Cloud-KI-Dienste (ChatGPT, Gemini, Claude, Copilot, Meta AI & Co.) sehen alles, was Sie eingeben oder
+      hochladen. Eingaben werden gespeichert, können von Mitarbeitenden des Anbieters gelesen werden und sind
+      mit Konto, Zahlungsdaten und IP-Adresse verknüpft; die Server stehen überwiegend in den USA.
+      Gesundheitsdaten, Passwörter, PINs, Kontodaten, Ausweisdaten und Fotos von Dokumenten gehören nie in eine
+      Cloud-KI – ebenso wenig Daten anderer Menschen (Kunden, Kollegen, Familie) oder interne Unterlagen Ihres
+      Arbeitgebers. Wer etwas formulieren lassen will, ersetzt Namen und Zahlen vorher durch Platzhalter.
+
+  - id: ai-disable-training
+    point: Training mit Ihren Chats abschalten
+    priority: Essential
+    details: >-
+      Viele Anbieter verwenden Ihre Unterhaltungen standardmäßig, um ihre Modelle weiterzuentwickeln. Schalten
+      Sie das in den Einstellungen ab, etwa bei ChatGPT unter Einstellungen › Datenkontrollen › „Das Modell
+      für alle verbessern“, bei Claude unter Einstellungen › Datenschutz und bei Gemini und Copilot in den
+      Aktivitäts- bzw. Datenschutzeinstellungen. Die Schalter heißen je nach Anbieter anders und wandern bei
+      Updates gelegentlich – schauen Sie ab und zu nach. Meta trainiert seine KI in der EU auch mit
+      öffentlichen Facebook- und Instagram-Beiträgen; dem können Sie im Datenschutzcenter widersprechen.
+
+  - id: ai-check-answers
+    point: KI-Antworten nicht blind vertrauen
+    priority: Essential
+    details: >-
+      Chatbots klingen immer überzeugt, erfinden aber regelmäßig Fakten, Quellen, Links und sogar
+      Telefonnummern. Prüfen Sie Antworten zu Gesundheit, Recht, Geld und Sicherheit an einer seriösen Quelle
+      nach. Hotlines, Support-Nummern und Download-Links übernehmen Sie nur von der offiziellen Website des
+      Unternehmens – Betrüger platzieren gezielt falsche Nummern, die dann in KI-Antworten auftauchen.
+      Befehle oder Skripte, die Ihnen eine KI vorschlägt, führen Sie nur aus, wenn Sie verstehen, was sie tun.
+
+  - id: ai-use-official-apps
+    point: Nur offizielle KI-Apps und -Erweiterungen nutzen
+    priority: Essential
+    details: >-
+      In App-Stores und Browser-Erweiterungsshops gibt es viele Nachahmer mit Namen wie „ChatGPT“ oder
+      „AI Chat“, die Daten abgreifen oder teure Abos abschließen. Installieren Sie nur die App des echten
+      Anbieters (Entwicklername prüfen) oder nutzen Sie direkt die offizielle Website. Erweiterungen, die
+      „KI in jede Seite“ bringen, können alles mitlesen, was Sie im Browser tun.
+
+  - id: ai-review-built-in-features
+    point: Eingebaute KI-Funktionen prüfen
+    priority: Essential
+    details: >-
+      KI steckt inzwischen in vielen Geräten und Apps, oft ohne dass man es bemerkt: Copilot und Recall unter
+      Windows (Recall macht laufend Bildschirmfotos – Einstellungen › Datenschutz und Sicherheit › Recall &
+      Momentaufnahmen), Gemini auf Android, Apple Intelligence mit ChatGPT-Anbindung auf dem iPhone, Meta AI in
+      WhatsApp und Instagram, KI-Zusammenfassungen in Gmail, Outlook und Office. Schalten Sie ab, was Sie nicht
+      brauchen. In WhatsApp gilt: Was Sie an Meta AI schreiben oder in einer Gruppe mit „@Meta AI“ erwähnen,
+      verarbeitet Meta – mit „Erweiterter Chat-Datenschutz“ im Chat oder in der Gruppe lässt sich das sperren.
+
+  - id: be-aware-of-ai-scams
+    point: KI-Betrug kennen
+    priority: Essential
+    details: >-
+      Mit KI lassen sich fehlerfreie Phishing-Mails, gefälschte Bilder und Videos und sogar Stimmen bekannter
+      Personen erzeugen. Rechtschreibfehler sind kein verlässliches Warnsignal mehr. Vereinbaren Sie in der
+      Familie ein Codewort für Notfälle und rufen Sie bei Geldforderungen immer über die Ihnen bekannte Nummer
+      zurück. Auch Videoanrufe von „Chefs“, „Promis“ oder „Bankberatern“ können gefälscht sein.
+
+  - id: ai-secure-account
+    point: KI-Konto absichern
+    priority: Optional
+    details: >-
+      Im Chatverlauf steht oft mehr Persönliches als in jedem Postfach. Sichern Sie das Konto wie Ihr E-Mail-Konto:
+      eigenes, starkes Passwort und Zwei-Faktor-Authentifizierung. Prüfen Sie gelegentlich, auf welchen Geräten
+      Sie angemeldet sind, und melden Sie sich auf fremden Geräten wieder ab.
+
+  - id: ai-clean-up-history-and-memory
+    point: Chatverlauf und „Gedächtnis“ aufräumen
+    priority: Optional
+    details: >-
+      Viele Chatbots merken sich Dinge über Sie über einzelne Chats hinaus („Erinnerungen“, „Gedächtnis“,
+      „Personalisierung“). Schauen Sie in den Einstellungen nach, was gespeichert ist, löschen Sie, was dort
+      nicht hingehört, und schalten Sie die Funktion ab, wenn Sie sie nicht brauchen. Für einmalige Fragen
+      eignet sich ein temporärer Chat ohne Verlauf. Alte Chats löschen Sie am besten regelmäßig.
+
+  - id: ai-careful-with-shared-chats
+    point: Vorsicht beim Teilen von Chats
+    priority: Optional
+    details: >-
+      Ein geteilter Chat-Link ist für jeden sichtbar, der den Link hat – er kann weitergeleitet werden, und in
+      der Vergangenheit sind geteilte Chats schon in Suchmaschinen aufgetaucht. Prüfen Sie vor dem Teilen,
+      was im Verlauf steht, und löschen Sie nicht mehr benötigte Links in den Einstellungen.
+
+  - id: ai-limit-connected-access
+    point: KI-Assistenten nur nötige Zugriffe geben
+    priority: Advanced
+    details: >-
+      KI-Assistenten lassen sich mit E-Mail, Kalender, Cloud-Speicher und Browser verbinden oder handeln als
+      „Agent“ selbstständig im Netz. Jede Verbindung gibt dem Anbieter Zugriff auf diese Daten. Zudem können
+      versteckte Anweisungen in Webseiten, Mails oder Dokumenten die KI zu ungewollten Aktionen verleiten
+      („Prompt Injection“). Verbinden Sie nur, was Sie wirklich brauchen, lassen Sie keine Zahlungen,
+      Passwörter oder das Versenden von Nachrichten ohne Ihre Bestätigung zu und trennen Sie ungenutzte
+      Verbindungen wieder.
+
+  - id: consider-running-ai-locally
+    point: KI selbst hosten
+    priority: Advanced
+    details: >-
+      Wer KI ganz ohne Cloud nutzen will, betreibt sie selbst. Auf dem eigenen Rechner geht das mit
+      [Ollama](https://ollama.com) oder [LM Studio](https://lmstudio.ai) (Windows, macOS, Linux); mit
+      [Open WebUI](https://openwebui.com) bekommen Sie eine Chat-Oberfläche wie bei ChatGPT, auch für einen
+      Heimserver oder NAS, den die ganze Familie nutzt. Ihre Daten verlassen dabei nicht Ihr Netz. Für
+      7B/8B-Modelle brauchen Sie etwa 8 GB Grafikkartenspeicher (VRAM). Lokale Modelle sind deutlich schwächer
+      als große Cloud-Modelle (kleineres Kontextfenster, oft nur Text). Wichtig: Den KI-Server nie direkt ins
+      Internet freigeben, sondern nur im Heimnetz oder per VPN erreichbar machen, ein Passwort setzen, Updates
+      einspielen und Modelle nur aus bekannten Quellen laden.
 
 - title: E-Mail
   slug: email
@@ -686,7 +807,7 @@
 
   - id: use-plaintext
     point: Nur-Text-Mails verwenden
-    priority: Optional
+    priority: Advanced
     details: >-
       Es gibt zwei Arten von E-Mails: Nur-Text und HTML. Nur-Text ist für Datenschutz und Sicherheit klar
       vorzuziehen, da HTML-Mails oft Kennungen in Links und Bildern enthalten. Zudem gibt es Angriffe auf den
@@ -702,7 +823,7 @@
 
   - id: don't-share-sensitive-data-via-email
     point: Keine sensiblen Daten per E-Mail senden
-    priority: Optional
+    priority: Essential
     details: >-
       E-Mails lassen sich leicht abfangen, und Sie wissen nicht, wie sicher das Postfach des Empfängers ist.
       Für vertrauliche Informationen ist unverschlüsselte E-Mail daher nicht geeignet.
@@ -728,7 +849,7 @@
 
   - id: use-aliasing-/-anonymous-forwarding
     point: Aliase / anonyme Weiterleitung nutzen
-    priority: Advanced
+    priority: Optional
     details: >-
       Mit E-Mail-Aliasen landen Mails an [beliebig]@meine-domain.de trotzdem in Ihrem Postfach. So nutzen Sie
       für jeden Dienst eine eigene Adresse. Bekommen Sie Spam, sperren Sie den Alias und wissen sofort, welche
@@ -766,7 +887,7 @@
 
   - id: be-careful-with-auto-replies
     point: Vorsicht mit Abwesenheitsnotizen
-    priority: Advanced
+    priority: Optional
     details: >-
       Abwesenheitsnotizen sind praktisch, verraten aber oft zu viel (Urlaubsort, Dauer, Vertretung) – Stoff
       für Social Engineering und gezielte Angriffe.
@@ -845,7 +966,7 @@
 
   - id: use-only-open-source-messaging-platforms
     point: Nur quelloffene Messenger nutzen
-    priority: Essential
+    priority: Optional
     details: >-
       Ist der Quellcode offen, kann ihn jede fachkundige Person unabhängig prüfen – auf Hintertüren,
       Schwachstellen und andere Sicherheitsprobleme.
@@ -866,14 +987,14 @@
 
   - id: ensure-your-recipients-environment-is-secure
     point: Auch das Umfeld des Empfängers zählt
-    priority: Essential
+    priority: Optional
     details: >-
       Ihr Gespräch ist nur so sicher wie das schwächste Glied. Oft ist der einfachste Angriff der auf die am
       schlechtesten geschützte Person oder deren Gerät.
 
   - id: disable-cloud-services
     point: Cloud-Dienste deaktivieren
-    priority: Essential
+    priority: Optional
     details: >-
       Manche Messenger bieten eine Web- oder Desktop-Version an. Das vergrößert die Angriffsfläche und war
       schon Ursache mehrerer schwerer Sicherheitsprobleme – vermeiden Sie es nach Möglichkeit. Prüfen Sie
@@ -881,14 +1002,14 @@
 
   - id: secure-group-chats
     point: Gruppenchats absichern
-    priority: Essential
+    priority: Optional
     details: >-
       Je mehr Teilnehmer eine Gruppe hat, desto größer das Risiko. Prüfen Sie regelmäßig, ob alle Mitglieder
       noch die sind, die sie vorgeben zu sein.
 
   - id: create-a-safe-environment-for-communication
     point: Sichere Umgebung für Kommunikation schaffen
-    priority: Essential
+    priority: Optional
     details: >-
       Ihre Kommunikation kann an vielen Stellen überwacht oder abgefangen werden: auf Ihrem Gerät oder dem
       der anderen, beim Internetanbieter, an Netzknoten, beim Messenger-Anbieter oder auf dessen Servern.
@@ -909,7 +1030,7 @@
 
   - id: defang-urls
     point: Links „entschärfen“
-    priority: Optional
+    priority: Advanced
     details: >-
       Das Versenden von Links kann ungewollt Daten preisgeben, weil die Vorschau beim Empfänger erzeugt wird.
       Schreibt man verdächtige Links „entschärft“ (z. B. `beispiel[.]de`), werden sie weder als Vorschau
@@ -975,7 +1096,7 @@
 
   - id: harden-whatsapp-settings
     point: WhatsApp-Einstellungen härten
-    priority: Optional
+    priority: Essential
     details: >-
       Wenn WhatsApp wegen Gruppenzwang bleibt: Unter Einstellungen › Datenschutz › Erweitert
       „IP-Adresse in Anrufen schützen“ aktivieren (Anrufe laufen über WhatsApp-Server, das Gegenüber sieht
@@ -1136,7 +1257,7 @@
   checklist:
   - id: use-a-vpn
     point: VPN nutzen
-    priority: Essential
+    priority: Optional
     details: >-
       Nutzen Sie einen seriösen, kostenpflichtigen VPN-Dienst. Das verbirgt Ihre echte IP-Adresse vor den
       besuchten Seiten, reduziert die Daten, die Ihr Internetanbieter sammeln kann, und schützt in
@@ -1165,14 +1286,14 @@
 
   - id: implement-a-network-wide-vpn
     point: VPN für das ganze Netzwerk einrichten
-    priority: Optional
+    priority: Advanced
     details: >-
       Wird das VPN auf Router, Firewall oder Heimserver eingerichtet, läuft der Verkehr aller Geräte
       verschlüsselt darüber – ohne einzelne VPN-Apps.
 
   - id: protect-against-dns-leaks
     point: DNS-Lecks verhindern
-    priority: Optional
+    priority: Advanced
     details: >-
       Bei VPN-Nutzung sollten auch Ihre DNS-Anfragen durch das VPN laufen, nicht über Ihren
       Internetanbieter. Gute VPN-Apps tun das automatisch; prüfen können Sie es mit einem
@@ -1180,7 +1301,7 @@
 
   - id: use-a-secure-vpn-protocol
     point: Sicheres VPN-Protokoll nutzen
-    priority: Optional
+    priority: Advanced
     details: >-
       OpenVPN und WireGuard sind quelloffene, schlanke und sichere Protokolle. Meiden Sie PPTP und SSTP.
 
@@ -1201,14 +1322,14 @@
 
   - id: whitelist-mac-addresses
     point: MAC-Adressen freigeben (Whitelist)
-    priority: Optional
+    priority: Advanced
     details: >-
       In den Router-Einstellungen können Sie nur bekannte Geräte (MAC-Adressen) zulassen, sodass unbekannte
       Geräte sich nicht sofort verbinden können – selbst mit Passwort.
 
   - id: change-the-router’s-local-ip-address
     point: Lokale IP-Adresse des Routers ändern
-    priority: Optional
+    priority: Advanced
     details: >-
       Ein bösartiges Skript im Browser kann bekannte, verwundbare Router unter ihrer Standard-IP-Adresse
       ansprechen und manipulieren. Eine ungewöhnliche lokale Adresse erschwert das.
@@ -1249,7 +1370,7 @@
 
   - id: kill-unused-processes-and-services-on-your-router
     point: Unnötige Dienste auf dem Router abschalten
-    priority: Optional
+    priority: Advanced
     details: >-
       Dienste wie Telnet und SSH, die Kommandozeilenzugriff bieten, sollten nie aus dem Internet erreichbar
       und im Heimnetz abgeschaltet sein, wenn Sie sie nicht brauchen.
@@ -1276,7 +1397,7 @@
 
   - id: manage-range-correctly
     point: Reichweite passend einstellen
-    priority: Optional
+    priority: Advanced
     details: >-
       Volle Sendeleistung ist in einer kleinen Wohnung unnötig – wenn Ihr WLAN bis auf die Straße reicht,
       vergrößert das die Angriffsfläche.
@@ -1297,7 +1418,7 @@
 
   - id: block-ads-network-wide-with-dns
     point: Werbung im ganzen Heimnetz per DNS blocken
-    priority: Optional
+    priority: Advanced
     details: >-
       DNS ist das Telefonbuch des Internets. Ein eigener DNS-Filter wie
       [Pi-hole](https://pi-hole.net) oder [AdGuard Home](https://adguard.com/de/adguard-home/overview.html),
@@ -1446,7 +1567,7 @@
 
   - id: use-a-mobile-firewall
     point: Mobile Firewall nutzen
-    priority: Optional
+    priority: Advanced
     details: >-
       Eine Firewall-App (z. B. NetGuard, TrackerControl) verhindert, dass Apps unerwünscht Daten senden.
 
@@ -1458,7 +1579,7 @@
 
   - id: sandbox-mobile-apps
     point: Apps in einer Sandbox isolieren
-    priority: Optional
+    priority: Advanced
     details: >-
       Mit [Island](https://awesome-privacy.xyz/security-tools/mobile-apps/island) oder Shelter (Android)
       sperren Sie datenhungrige Apps in ein separates Arbeitsprofil ein, ohne Zugriff auf Ihre privaten Daten.
@@ -1578,10 +1699,10 @@
 
   - id: disable-cortana-or-siri
     point: Sprachassistenten deaktivieren
-    priority: Essential
+    priority: Optional
     details: >-
-      Sprachassistenten wie Cortana, Copilot oder Siri senden Daten zur Verarbeitung an den Hersteller.
-      Deaktivieren oder begrenzen Sie sie.
+      Sprachassistenten wie Siri oder Cortana senden Daten zur Verarbeitung an den Hersteller.
+      Deaktivieren oder begrenzen Sie sie. KI-Assistenten wie Copilot finden Sie im Abschnitt „KI & Chatbots“.
 
   - id: review-your-installed-apps
     point: Installierte Programme prüfen
@@ -1599,20 +1720,20 @@
 
   - id: disallow-usage-data-from-being-sent-to-the-cloud
     point: Nutzungsdaten nicht in die Cloud senden
-    priority: Essential
+    priority: Optional
     details: >-
       Begrenzen Sie Diagnose- und Nutzungsdaten, die an den Hersteller gehen. Unter Windows: Einstellungen ›
       Datenschutz und Sicherheit › Diagnose & Feedback und › Allgemein (Werbe-ID deaktivieren).
 
   - id: avoid-quick-unlock
     point: Schnell-Entsperren meiden
-    priority: Essential
+    priority: Optional
     details: >-
       Ein starkes Passwort ist sicherer als Biometrie oder eine kurze PIN zum Entsperren des Computers.
 
   - id: power-off-computer,-instead-of-standby
     point: Ausschalten statt Standby
-    priority: Essential
+    priority: Optional
     details: >-
       Fahren Sie das Gerät herunter, wenn Sie es nicht nutzen – besonders bei verschlüsselter Festplatte,
       denn nur im ausgeschalteten Zustand sind die Daten wirklich verschlossen.
@@ -1657,7 +1778,7 @@
 
   - id: don't-charge-devices-from-your-pc
     point: Geräte nicht am PC laden
-    priority: Optional
+    priority: Advanced
     details: >-
       Laden Sie Handy & Co. lieber an Netzteil oder Powerbank als am PC, um USB-bezogene Risiken zu vermeiden.
 
@@ -1684,13 +1805,13 @@
 
   - id: check-keyboard-connection
     point: Tastaturanschluss prüfen
-    priority: Optional
+    priority: Advanced
     details: >-
       Achten Sie an öffentlichen oder fremden Computern auf Hardware-Keylogger zwischen Tastatur und Rechner.
 
   - id: prevent-keystroke-injection-attacks
     point: Tastatureingabe-Angriffe verhindern
-    priority: Optional
+    priority: Advanced
     details: >-
       Als Tastatur getarnte USB-Geräte können in Sekunden Befehle eingeben. Sperren Sie den PC beim Weggehen
       und nutzen Sie ggf. USBGuard o. Ä.
@@ -1776,25 +1897,6 @@
       [Canary Tokens](https://canarytokens.org) sind Köder-Dateien oder -Adressen, die Alarm schlagen, sobald
       jemand unbefugt darauf zugreift.
 
-  - id: keep-sensitive-data-out-of-cloud-ai
-    point: Keine sensiblen Daten in Cloud-KI eingeben
-    priority: Essential
-    details: >-
-      Cloud-KI-Dienste (ChatGPT, Gemini, Claude & Co.) sehen alles, was Sie
-      eingeben. Eingaben werden gespeichert, je nach Einstellung auch fürs Training genutzt, und sind mit
-      Konto, Zahlungsdaten und IP-Adresse verknüpft; die Server stehen überwiegend in den USA. Gesundheitsdaten,
-      Passwörter, Kundendaten und Ausweisdaten gehören nie in eine Cloud-KI. Prüfen Sie außerdem in den
-      Einstellungen, ob Ihre Chats zum Training verwendet werden dürfen.
-
-  - id: consider-running-ai-locally
-    point: KI lokal betreiben erwägen
-    priority: Advanced
-    details: >-
-      Mit [Ollama](https://ollama.com) (Windows, macOS, Linux) laufen Sprachmodelle direkt
-      auf Ihrem Rechner – Ihre Daten verlassen das Gerät nicht. Für 7B/8B-Modelle brauchen Sie etwa 8 GB
-      Grafikkartenspeicher (VRAM). Lokale Modelle sind deutlich schwächer als große Cloud-Modelle (kleineres
-      Kontextfenster, oft nur Text), dafür bleiben die Daten bei Ihnen.
-
   - id: reduce-dependence-on-big-tech-clouds
     point: Abhängigkeit von Google-/Apple-Cloud verringern
     priority: Optional
@@ -1846,7 +1948,7 @@
   checklist:
   - id: rename-devices-to-not-specify-brand/model
     point: Geräte ohne Marke/Modell benennen
-    priority: Essential
+    priority: Optional
     details: >-
       Ändern Sie Standard-Gerätenamen in etwas Neutrales, damit Angreifer nicht sofort Marke und Modell
       erkennen.
@@ -1874,7 +1976,7 @@
 
   - id: don't-link-your-smart-home-devices-to-your-real-identity
     point: Smart-Home nicht mit Ihrer echten Identität verknüpfen
-    priority: Essential
+    priority: Optional
     details: >-
       Nutzen Sie neutrale Benutzernamen und eigene Passwörter und melden Sie sich nicht über soziale Netzwerke
       oder andere Drittdienste an.
@@ -1930,14 +2032,14 @@
 
   - id: assess-risks
     point: Risiken abwägen
-    priority: Advanced
+    priority: Optional
     details: >-
       Bedenken Sie die Privatsphäre aller Haushaltsmitglieder und Gäste und passen Sie Einstellungen an –
       etwa Geräte zu bestimmten Zeiten abschalten.
 
   - id: avoid-smart-devices-you-don't-need
     point: Unnötige smarte Geräte vermeiden
-    priority: Advanced
+    priority: Optional
     details: >-
       Jedes vernetzte Gerät erhöht das Risiko. Muss etwas nicht „smart“ sein, ist die normale Variante die
       sicherere Wahl.
@@ -2091,14 +2193,14 @@
 
   - id: prevent-camfecting
     point: Webcam-Übernahme verhindern
-    priority: Essential
+    priority: Optional
     details: >-
       Schützen Sie sich mit Webcam-Abdeckungen. Schalten Sie Sprachassistenten stumm, wenn Sie sie nicht
       nutzen oder Vertrauliches besprechen.
 
   - id: stay-protected-from-shoulder-surfers
     point: Vor Schulterblicken schützen
-    priority: Essential
+    priority: Optional
     details: >-
       Nutzen Sie in der Öffentlichkeit Blickschutzfilter für Laptop und Handy, damit niemand mitliest.
 
@@ -2228,13 +2330,6 @@
       [Fakeshop-Finder](https://www.verbraucherzentrale.de/fakeshopfinder-71560) und
       [Punycoder](https://www.punycoder.com) (macht getarnte Buchstaben sichtbar).
 
-  - id: be-aware-of-ai-scams
-    point: KI-Betrug kennen
-    priority: Essential
-    details: >-
-      Mit KI lassen sich fehlerfreie Phishing-Mails, gefälschte Bilder und sogar Stimmen bekannter Personen
-      erzeugen. Rechtschreibfehler sind kein verlässliches Warnsignal mehr. Vereinbaren Sie in der Familie
-      ein Codewort für Notfälle und rufen Sie bei Geldforderungen immer über die Ihnen bekannte Nummer zurück.
   color: indigo
 
 - title: Physische Sicherheit
@@ -2266,7 +2361,7 @@
 
   - id: opt-out-of-public-records
     point: Aus öffentlichen Verzeichnissen austragen
-    priority: Essential
+    priority: Optional
     details: |
       Lassen Sie sich aus Personensuchmaschinen und Verzeichnissen austragen (Auskunfts- und
       Löschrecht nach DSGVO). Suchen Sie dazu regelmäßig nach Ihrem Namen, Ihrer Adresse und
@@ -2274,7 +2369,7 @@
 
   - id: watermark-documents
     point: Dokumente mit Wasserzeichen versehen
-    priority: Essential
+    priority: Optional
     details: |
       Versehen Sie digitale Kopien persönlicher Dokumente (z. B. Ausweiskopie) mit einem Wasserzeichen
       mit Empfänger, Zweck und Datum – so ist Missbrauch erschwert und ein Leck nachvollziehbar.
@@ -2293,7 +2388,7 @@
 
   - id: secure-perimeter
     point: Umgebung sichern
-    priority: Essential
+    priority: Optional
     details: Sichern Sie Orte, an denen Geräte mit persönlichen Daten liegen, und begrenzen Sie den Zugang.
 
   - id: physically-secure-devices

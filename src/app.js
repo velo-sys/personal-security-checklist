@@ -10,11 +10,11 @@
 
   var EMOJI = {
     password: '🔑', browser: '🌐', email: '✉️', messaging: '💬', social: '👥', network: '📶',
-    mobile: '📱', computer: '💻', home: '🏠', finance: '💳', human: '🧠', physical: '🔒',
+    mobile: '📱', computer: '💻', home: '🏠', finance: '💳', human: '🧠', physical: '🔒', ai: '🤖',
   };
   var COLORS = {
     yellow: '#facc15', emerald: '#34d399', teal: '#2dd4bf', cyan: '#22d3ee', blue: '#60a5fa', violet: '#a78bfa',
-    fuchsia: '#e879f9', pink: '#f472b6', red: '#f87171', purple: '#c084fc', indigo: '#818cf8', lime: '#a3e635',
+    fuchsia: '#e879f9', pink: '#f472b6', red: '#f87171', purple: '#c084fc', indigo: '#818cf8', lime: '#a3e635', orange: '#fb923c',
   };
 
   var T = {
@@ -290,7 +290,7 @@
     return '<header class="top"><a href="#/" class="brand">🛡️ ' + esc(t('title')) + '</a><div class="actions">' +
       '<span id="save-status">' + statusHtml() + '</span>' +
       '<button class="btn" data-act="lang">🌐 ' + esc(t('lang')) + '</button>' +
-      '<button class="btn" data-act="theme" aria-label="' + esc(t('theme')) + '">◐</button>' +
+      '<button class="btn" data-act="theme" aria-label="' + esc(t('theme')) + '" title="' + esc(t('theme')) + '">' + (state.theme === 'dark' ? '☀️' : '🌙') + '</button>' +
       '<div class="menu"><button class="btn" data-act="menu" aria-expanded="' + ui.menu + '">⋯ ' + esc(t('menu')) + '</button>' +
       (ui.menu ? '<div class="dropdown"><button data-act="export">' + esc(t('exportP')) + '</button>' +
         '<button data-act="import">' + esc(t('importP')) + '</button>' +
